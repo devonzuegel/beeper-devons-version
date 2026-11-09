@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Expand event cards to the conversation width and center the icon, label, and inline time.
+
 - Align call-summary cards with incoming messages and keep the time beside the event label.
 
 ## 0.1.0 — 2026-11-09

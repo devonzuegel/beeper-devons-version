@@ -1821,3 +1821,21 @@ body.bubble-mode .conversation .message-container.message-container.message-cont
   flex: 0 0 19px;
   background: var(--clean-event-icon) center / contain no-repeat;
 }
+
+/* Full-width event cards, with the icon, label, and time centered together. */
+body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) :is(.message-click-boundary, .message-children, .message-children > main, .message-contents-container) {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+  flex: 1 1 auto !important;
+}
+body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) .message-contents {
+  width: 100% !important;
+  max-width: 100% !important;
+  justify-content: center !important;
+}
+body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) .message-text-container {
+  width: auto !important;
+  flex: 0 1 auto !important;
+  justify-content: center !important;
+}
