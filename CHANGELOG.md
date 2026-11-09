@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Align call-summary cards with incoming messages and keep the time beside the event label.
+
 ## 0.1.0 — 2026-11-09
 
 - Preserve Devon’s current Beeper stylesheet as the initial versioned baseline.

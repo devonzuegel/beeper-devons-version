@@ -1777,3 +1777,47 @@ body.bubble-mode .conversation .message-container.message-container.message-cont
 body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)):not(.is-selected) .message-contents {
   outline-color: transparent !important;
 }
+
+/* Call-summary cards sit with incoming messages, with a single metadata row. */
+body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) .message-main {
+  justify-content: flex-start !important;
+}
+body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) .message-contents {
+  justify-content: flex-start !important;
+  flex-wrap: nowrap !important;
+  gap: 9px !important;
+  padding: 11px 16px !important;
+  border: 1px solid var(--clean-border, var(--color-border-neutrals)) !important;
+  border-radius: 10px !important;
+  box-sizing: border-box;
+}
+body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) .message-text-container {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  gap: 8px;
+  min-width: 0;
+  text-align: left !important;
+}
+body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) .message-text {
+  width: auto !important;
+  flex: 0 1 auto;
+  text-align: left !important;
+}
+body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) .timestamp {
+  display: inline-flex !important;
+  position: static !important;
+  float: none !important;
+  flex: 0 0 auto;
+  align-self: center !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+}
+body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) .MessageContent-module__isNotice:not(:has(.CallActionMessage-module__wrapper))::before {
+  content: "";
+  display: block;
+  width: 19px;
+  height: 19px;
+  flex: 0 0 19px;
+  background: var(--clean-event-icon) center / contain no-repeat;
+}
