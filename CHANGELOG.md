@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Match filter, search, and compose toolbar buttons to the ribbon’s muted Lucide duotone icons.
+
 - Try a faint shadow instead of the light-mode avatar border; retain the dark-mode rim.
 
 - Add a pale grey inner rim to light-mode avatars, including reaction photos, without changing their size.
