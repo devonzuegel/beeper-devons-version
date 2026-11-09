@@ -1896,7 +1896,7 @@ body.bubble-mode .conversation .message-container.message-container.message-cont
   margin-left: -3px !important;
 }
 .conversation .message-reactions > .MessageReactions-module__isOwnReaction .message-reaction-avatar:first-child {
-  box-shadow: 0 0 0 1px var(--clean-accent) !important;
+  box-shadow: 0 0 0 1px var(--clean-accent), var(--clean-avatar-shadow, 0 0 transparent) !important;
 }
 .conversation .message-reactions .message-reaction-count {
   font-size: 11px !important;
@@ -1909,11 +1909,16 @@ body.bubble-mode .conversation .message-container.message-container.message-cont
   }
 }
 
-/* A layout-neutral rim separates pale avatars from the surrounding surface. */
-.participant-img,
-.conversation .message-reactions .message-reaction-avatar {
-  outline: 1px solid #dedee3 !important;
-  outline-offset: -1px;
+/* A soft, layout-neutral shadow lifts pale avatars off light surfaces. */
+@media (prefers-color-scheme: light) {
+  :root {
+    --clean-avatar-shadow: 0 1px 3px rgba(0, 0, 0, 0.14);
+  }
+  .participant-img,
+  .conversation .message-reactions .message-reaction-avatar {
+    outline: none !important;
+    box-shadow: var(--clean-avatar-shadow) !important;
+  }
 }
 @media (prefers-color-scheme: dark) {
   .participant-img,
