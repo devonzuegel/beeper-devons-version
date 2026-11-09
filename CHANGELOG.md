@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Preserve the native gap below event cards so surrounding spacing stays balanced.
+
 - Expand event cards to the conversation width and center the icon, label, and inline time.
 
 - Align call-summary cards with incoming messages and keep the time beside the event label.
