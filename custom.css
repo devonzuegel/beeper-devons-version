@@ -1846,6 +1846,69 @@ body.bubble-mode .conversation .message-container.message-container.message-cont
   display: none !important;
 }
 
+/* Unframed reactions: an emoji followed by the people who chose it. */
+.conversation .message-reactions {
+  display: inline-flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 2px 15px !important;
+  max-width: 100% !important;
+}
+.conversation .MessageFooter-module__reactionsRow:has(.message-reactions) {
+  margin-top: 5px !important;
+  margin-bottom: 2px !important;
+}
+.conversation .message-reactions > .message-reaction-container {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  padding: 3px 0 !important;
+  border-radius: 5px !important;
+  min-height: 26px;
+  gap: 6px !important;
+  overflow: visible !important;
+}
+.conversation .message-reactions > .MessageReactions-module__isOwnReaction::before {
+  display: none !important;
+}
+.conversation .message-reactions .message-reaction {
+  font-size: 20px !important;
+  line-height: 1.2 !important;
+}
+.conversation .message-reactions .message-reaction img {
+  width: 20px !important;
+  height: 20px !important;
+  object-fit: contain;
+}
+.conversation .message-reactions .message-reaction-avatars {
+  gap: 0 !important;
+}
+.conversation .message-reactions .message-reaction-avatar {
+  width: 18px !important;
+  height: 18px !important;
+  flex: 0 0 18px !important;
+  border-radius: 50% !important;
+  box-sizing: border-box;
+  box-shadow: 0 0 0 1px var(--clean-bg) !important;
+}
+.conversation .message-reactions .message-reaction-avatars > :not(:first-child) {
+  margin-left: -3px !important;
+}
+.conversation .message-reactions > .MessageReactions-module__isOwnReaction .message-reaction-avatar:first-child {
+  box-shadow: 0 0 0 1px var(--clean-accent) !important;
+}
+.conversation .message-reactions .message-reaction-count {
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  color: var(--clean-muted) !important;
+}
+@media (pointer: coarse) {
+  .conversation .message-reactions > .message-reaction-container {
+    min-height: 44px;
+  }
+}
+
 /* A barely visible inner rim keeps dark avatars distinct from black surfaces. */
 @media (prefers-color-scheme: dark) {
   .participant-img {

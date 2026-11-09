@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Replace reaction pills with unframed emoji and compact photo-avatar groups, preserving overflow counts and marking your own reactions.
+
 - Add a faint, layout-neutral inner border to avatars in dark mode.
 
 - Hide the last pinned chat’s row divider, retaining the pinned-section divider.
