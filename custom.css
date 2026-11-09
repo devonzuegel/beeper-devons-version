@@ -1944,6 +1944,32 @@ body.bubble-mode .conversation .message-container.message-container.message-cont
   order: -1;
 }
 
+/* Give the active filter room for the duotone icon and a separate menu cue. */
+.left-pane-header .tab-bar .FilterButton-module__filterButton {
+  height: 30px !important;
+  min-width: 30px;
+  padding: 3px 4px !important;
+  gap: 4px;
+  box-sizing: border-box;
+  justify-content: center;
+  border-radius: 8px !important;
+}
+.left-pane-header .tab-bar .FilterButton-module__filterButton.FilterButton-module__active {
+  padding: 3px 6px !important;
+  background: color-mix(in srgb, var(--clean-accent) 10%, transparent) !important;
+  box-shadow: none !important;
+}
+.left-pane-header .tab-bar .FilterButton-module__filterButton::after {
+  order: 0;
+}
+.left-pane-header .tab-bar .FilterButton-module__menuTrigger {
+  order: 1;
+  width: 14px;
+  height: 20px;
+  padding: 0;
+  flex: 0 0 14px;
+}
+
 /* Match the chat-list toolbar to the Lucide duotone ribbon. */
 .left-pane-header .tab-bar button:is([aria-label="Filter"], [aria-label="Search Chats"], [aria-label="New Chat"]) > :not(.FilterButton-module__menuTrigger) {
   display: none !important;

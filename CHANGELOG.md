@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Fix the cramped active filter button with a soft tint, comfortable height, and a trailing dropdown cue.
+
 - Add a tiny white inner rim to light-mode avatars while keeping their faint shadow.
 
 - Move the Custom CSS heading and controls to the top of Appearance settings.
