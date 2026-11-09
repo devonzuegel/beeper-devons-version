@@ -1928,6 +1928,21 @@ body.bubble-mode .conversation .message-container.message-container.message-cont
   }
 }
 
+/* Keep Custom CSS and its heading first in Appearance settings. */
+.subview-prefs:has(> .prefs-group [data-pref-name="Custom CSS Options"]) {
+  display: flex;
+  flex-direction: column;
+}
+.subview-prefs:has(> .prefs-group [data-pref-name="Custom CSS Options"]) > * {
+  flex-shrink: 0;
+}
+.subview-prefs > h4:has(+ .prefs-group [data-pref-name="Custom CSS Options"]) {
+  order: -2;
+}
+.subview-prefs > .prefs-group:has([data-pref-name="Custom CSS Options"]) {
+  order: -1;
+}
+
 /* Match the chat-list toolbar to the Lucide duotone ribbon. */
 .left-pane-header .tab-bar button:is([aria-label="Filter"], [aria-label="Search Chats"], [aria-label="New Chat"]) > :not(.FilterButton-module__menuTrigger) {
   display: none !important;

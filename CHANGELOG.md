@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Move the Custom CSS heading and controls to the top of Appearance settings.
+
 - Match filter, search, and compose toolbar buttons to the ribbon’s muted Lucide duotone icons.
 
 - Try a faint shadow instead of the light-mode avatar border; retain the dark-mode rim.
