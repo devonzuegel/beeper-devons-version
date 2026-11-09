@@ -1,0 +1,1779 @@
+/*
+# Custom Beeper.app style
+This file will be injected as a <style> tag
+After making your changes, type "Reload custom CSS" in the command bar
+To open dev tools, open the command bar and type "open console"
+*/
+
+:root {
+  /*
+  --font-family: system-ui, "Segoe UI", Roboto, "Apple Color Emoji", TwemojiFlags, "Segoe UI Emoji", "Segoe UI Symbol", Twemoji, sans-serif, "Noto Color Emoji";
+  */
+}
+
+@media (prefers-color-scheme: light) {
+  /* Beeper Clean — Beeper Desktop v4
+   Set Beeper's appearance to follow the system.
+   Install through Settings → Appearance → Custom CSS, then Reload CSS.
+   Built against https://github.com/beeper/themes/tree/main/current-v4
+*/
+
+  /* Palette: edit these values to personalize the theme. */
+  :root,
+  body {
+    color-scheme: light;
+    --clean-bg: #ffffff;
+    --clean-bg-rgb: 255, 255, 255;
+    --clean-sidebar: #f5f5f4;
+    --clean-surface: #f0f0ef;
+    --clean-hover: #e8e8e7;
+    --clean-border: #dededc;
+    --clean-text: #242426;
+    --clean-text-rgb: 36, 36, 38;
+    --clean-muted: #626268;
+    --clean-subtle: #737379;
+    --clean-accent: #345fc1;
+    --clean-accent-rgb: 52, 95, 193;
+    --clean-accent-hover: #2b50a4;
+    --clean-accent-disabled: #6c7fa8;
+    --clean-sent: #345fc1;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root,
+    body {
+      color-scheme: dark;
+      --clean-bg: #1c1c1e;
+      --clean-bg-rgb: 28, 28, 30;
+      --clean-sidebar: #232325;
+      --clean-surface: #2c2c2f;
+      --clean-hover: #353539;
+      --clean-border: #3c3c40;
+      --clean-text: #ededf0;
+      --clean-text-rgb: 237, 237, 240;
+      --clean-muted: #b2b2ba;
+      --clean-subtle: #9b9ba5;
+      --clean-accent: #94b3ff;
+      --clean-accent-rgb: 148, 179, 255;
+      --clean-accent-hover: #426ccc;
+      --clean-accent-disabled: #475475;
+      --clean-sent: #3459ad;
+    }
+  }
+
+  /* Override Beeper's tokens on both root and body, where themes define them.
+   Keep white-on-blue selection so selected-row labels remain readable. */
+  :root,
+  body {
+    --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    --color-bg: var(--clean-bg) !important;
+    --color-bg-rgb: var(--clean-bg-rgb) !important;
+    --color-fg: var(--clean-text) !important;
+    --color-fg-rgb: var(--clean-text-rgb) !important;
+    --color-primary: var(--clean-accent) !important;
+    --color-primary-rgb: var(--clean-accent-rgb) !important;
+
+    --color-background-app: var(--clean-bg) !important;
+    --color-background-app-weak: var(--clean-sidebar) !important;
+    --color-background-elevated: var(--clean-bg) !important;
+    --color-background-elevated-hover: var(--clean-hover) !important;
+    --color-background-grouped: var(--clean-bg) !important;
+    --color-background-grouped-weak: var(--clean-sidebar) !important;
+    --color-background-object: var(--clean-surface) !important;
+
+    --left-pane-bg: var(--clean-sidebar) !important;
+    --right-pane-bg: var(--clean-bg) !important;
+    --color-background-sidebar: var(--clean-sidebar) !important;
+    --color-background-sidebar-opaque: var(--clean-sidebar) !important;
+    --color-background-sidebar-thread-focus: var(--clean-hover) !important;
+    --color-background-sidebar-thread-selected: var(--clean-sent) !important;
+    --color-background-sidebar-thread-selected-unfocused: var(--clean-sent) !important;
+    --color-background-selected-primary: var(--clean-sent) !important;
+    --color-background-selected-secondary: var(--clean-hover) !important;
+
+    --color-background-header-right: var(--clean-bg) !important;
+    --color-background-header-right-opaque: var(--clean-bg) !important;
+    --color-background-menu: var(--clean-bg) !important;
+    --color-background-menu-opaque: var(--clean-bg) !important;
+    --color-background-menu-option-hover: var(--clean-sent) !important;
+    --color-background-input: var(--clean-surface) !important;
+    --color-background-kbd: var(--clean-surface) !important;
+    --color-background-tag: var(--clean-surface) !important;
+
+    --color-background-button-primary: var(--clean-sent) !important;
+    --color-background-button-primary-active: var(--clean-accent-hover) !important;
+    --color-background-button-primary-disabled: var(--clean-accent-disabled) !important;
+    --color-background-button-secondary: var(--clean-surface) !important;
+    --color-background-button-secondary-active: var(--clean-hover) !important;
+    --color-background-button-secondary-disabled: var(--clean-sidebar) !important;
+    --color-background-button-translucent: rgba(var(--clean-text-rgb), 0.06) !important;
+    --color-background-button-translucent-active: rgba(var(--clean-text-rgb), 0.12) !important;
+    --color-background-button-translucent-disabled: rgba(var(--clean-text-rgb), 0.03) !important;
+
+    --color-background-message-active: var(--clean-surface) !important;
+    --color-background-message-bubble-received: var(--clean-surface) !important;
+    --color-background-message-bubble-sent: var(--clean-sent) !important;
+    --color-background-message-bubble-linked: var(--clean-bg) !important;
+
+    --color-border-neutrals: var(--clean-border) !important;
+    --color-border-neutrals-strong: var(--clean-subtle) !important;
+    --color-border-neutrals-weak: rgba(var(--clean-text-rgb), 0.08) !important;
+    --color-border-input: var(--clean-border) !important;
+    --color-border-input-active: var(--clean-accent) !important;
+    --color-border-translucent: rgba(var(--clean-text-rgb), 0.1) !important;
+    --color-border-translucent-strong: rgba(var(--clean-text-rgb), 0.18) !important;
+    --color-border-translucent-strongest: rgba(var(--clean-text-rgb), 0.5) !important;
+    --color-border-translucent-weak: rgba(var(--clean-text-rgb), 0.06) !important;
+
+    --color-text-neutrals: var(--clean-text) !important;
+    --color-text-neutrals-weak: var(--clean-muted) !important;
+    --color-text-neutrals-subtle: var(--clean-subtle) !important;
+    --color-text-translucent: var(--clean-text) !important;
+    --color-text-translucent-weak: var(--clean-muted) !important;
+    --color-text-translucent-subtle: var(--clean-subtle) !important;
+    --color-text-on-accent: #ffffff !important;
+    --color-text-on-accent-weak: rgba(255, 255, 255, 0.85) !important;
+
+    --color-icon-neutrals: var(--clean-muted) !important;
+    --color-icon-neutrals-strong: var(--clean-text) !important;
+    --color-icon-neutrals-weak: var(--clean-subtle) !important;
+    --color-icon-neutrals-subtle: var(--clean-subtle) !important;
+    --color-icon-translucent: var(--clean-muted) !important;
+    --color-icon-translucent-strong: var(--clean-text) !important;
+    --color-icon-translucent-weak: var(--clean-subtle) !important;
+    --color-icon-translucent-subtle: var(--clean-subtle) !important;
+    --color-icon-on-accent: rgba(255, 255, 255, 0.85) !important;
+    --color-icon-on-accent-strong: #ffffff !important;
+    --color-icon-on-accent-weak: rgba(255, 255, 255, 0.65) !important;
+
+    --color-background-scrollbar: rgba(var(--clean-text-rgb), 0.2) !important;
+    --color-background-scrollbar-hover: rgba(var(--clean-text-rgb), 0.35) !important;
+    --audio-bar-bg: var(--clean-surface) !important;
+    --audio-bar-border: var(--clean-border) !important;
+    --audio-bar-button: var(--clean-muted) !important;
+    --audio-bar-preview-progress: var(--clean-accent) !important;
+    --compose-message-accent: var(--clean-muted) !important;
+    --key-bg: var(--clean-surface) !important;
+    --key-border: var(--clean-border) !important;
+    --color-key-bottom-bg: var(--clean-border) !important;
+    --prefs-well: var(--clean-sidebar) !important;
+    --border-radius-conversation-bubble: 12px !important;
+  }
+
+  /* Flat, opaque panes and a quiet header. */
+  .left,
+  .account-switcher {
+    background: var(--clean-sidebar) !important;
+  }
+  .right-pane-header.right-pane-header-thread {
+    background: var(--clean-bg) !important;
+    border-bottom: 1px solid var(--clean-border) !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* No row dividers; retain native row sizes for the virtualized chat list. */
+  .sidebar-thread section::after {
+    display: none !important;
+  }
+  .ThreadListItem-module__wrapper.ThreadListItem-module__isSelected::before {
+    border-radius: 8px !important;
+  }
+
+  /* Smaller, consistent bubble corners without changing media dimensions. */
+  .bubble-mode .message-contents {
+    border-radius: 12px !important;
+    box-shadow: none !important;
+  }
+  .bubble-mode .is-sender:not(.type-action):not(.is-deleted) .message-text-container {
+    color: #ffffff !important;
+  }
+
+  /* Keep keyboard navigation visible. */
+  :where(button, a, [tabindex]):not(input):not(textarea):not([contenteditable]):not([role="textbox"]):focus-visible {
+    outline: 2px solid var(--clean-accent) !important;
+    outline-offset: 2px;
+  }
+}
+
+/* Beeper Clean: narrow account ribbon */
+:root, body {
+  --account-switcher-width: 44px !important;
+  --account-switcher-brand-icon-size: 18px !important;
+}
+
+/* One shared baseline for both sidebar dividers. */
+:root, body {
+  --clean-sidebar-header-height: 52px;
+}
+.account-switcher {
+  border-right: 1px solid transparent !important;
+  border-image: linear-gradient(
+    to bottom,
+    transparent 0 var(--clean-sidebar-header-height),
+    var(--clean-border) var(--clean-sidebar-header-height) 100%
+  ) 1 !important;
+}
+
+/* Beeper Clean: no conversation selected.
+   The installed desktop app leaves only its hidden selection header here.
+   Match that exact structure so settings, chats, and new-chat forms are excluded. */
+.right-wrapper > .right:not(.right-thread):not(.right-prefs):has(> .SelectionModeHeader-module__wrapper:only-child)::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 62px);
+  left: calc(50% - 16px);
+  width: 32px;
+  height: 32px;
+  background: var(--clean-subtle);
+  opacity: .65;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M8 7h16a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H13l-7 4v-5a4 4 0 0 1-2-3V11a4 4 0 0 1 4-4Z' fill='none' stroke='black' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  pointer-events: none;
+}
+.right-wrapper > .right:not(.right-thread):not(.right-prefs):has(> .SelectionModeHeader-module__wrapper:only-child)::after {
+  content: "Select a conversation\A⌘ K to find a chat";
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  right: 16px;
+  color: var(--clean-muted);
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.9;
+  text-align: center;
+  white-space: pre-wrap;
+  pointer-events: none;
+}
+
+/* Beeper Clean: neutral pinned group with a separator below it. */
+.sidebar-thread.isPinned .pin-icon {
+  display: none !important;
+}
+.sortable-threads:has(.sidebar-thread.isPinned) {
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--clean-border);
+  box-sizing: border-box;
+}
+
+/* Selected chats: soft gray highlight with rounded corners. */
+:root, body {
+  --clean-selected-bg: #ededed;
+}
+@media (prefers-color-scheme: dark) {
+  :root, body {
+    --clean-selected-bg: #343437;
+  }
+}
+.sidebar-thread.isSelected {
+  background: transparent !important;
+  box-shadow: none !important;
+  --thread-children-text: var(--clean-text);
+  --thread-children-icon: var(--clean-muted);
+  --thread-children-icon-strong: var(--clean-text);
+}
+.sidebar-thread.isSelected::before {
+  content: "";
+  position: absolute;
+  inset: 2px 4px;
+  background: var(--clean-selected-bg) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  pointer-events: none;
+  z-index: 0;
+}
+.sidebar-thread.isSelected > .ThreadListItem-module__wrapper {
+  position: relative;
+  z-index: 1;
+}
+.sidebar-thread.isSelected .ThreadListItem-module__wrapper::before,
+.sidebar-thread.isSelected .ThreadListItem-module__internal {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.sidebar-thread.isSelected .ThreadListItem-module__title,
+.sidebar-thread.isSelected .ThreadListItem-module__body,
+.sidebar-thread.isSelected .ThreadListItem-module__timestamp {
+  color: var(--clean-text) !important;
+}
+
+/* Beeper Clean: compact two-line reply references. */
+:is(.message-container, .compose-text) .linked-message {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+  width: fit-content !important;
+  max-width: min(100%, 420px) !important;
+  min-width: 0;
+  margin-top: 0 !important;
+  margin-bottom: 4px !important;
+  padding: 1px 0 1px 8px !important;
+  border: 0 !important;
+  border-left: 2px solid var(--clean-border) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--clean-muted) !important;
+  font-size: 12px !important;
+  line-height: 17px !important;
+  box-sizing: border-box;
+}
+:is(.message-container, .compose-text) .linked-message-content {
+  display: flex !important;
+  align-items: center !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: inherit !important;
+  font-size: inherit !important;
+  font-weight: 500 !important;
+  line-height: inherit !important;
+  gap: 4px !important;
+}
+:is(.message-container, .compose-text) .linked-message-content > .msg-text {
+  display: block !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+:is(.message-container, .compose-text) .linked-sender-name {
+  display: block !important;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0 0 1px !important;
+  padding: 0 !important;
+  color: var(--clean-subtle) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  line-height: 15px !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+:is(.message-container, .compose-text) .linked-message-inline-text {
+  display: block !important;
+  min-width: 0;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  color: inherit !important;
+  font-size: 12px !important;
+  line-height: 17px !important;
+}
+/* Keep quoted attachments small and preserve the clickable reference. */
+:is(.message-container, .compose-text) .linked-message-content:has(img, video) > .msg-text::before {
+  content: "Attachment";
+  white-space: nowrap;
+}
+:is(.message-container, .compose-text) .linked-message-content .msg-text > :is(img, video, .enhanced-img, .brand-video, [class*="BrandVideo-module__container"]) {
+  display: none !important;
+}
+:is(.message-container, .compose-text) .linked-message-file {
+  min-width: 0 !important;
+  max-width: 200px !important;
+  padding: 0 !important;
+  font-size: 12px !important;
+  line-height: 17px !important;
+}
+.message-container .reply-avatar,
+.message-container :is(.LinkedMessage-module__replyLineFromLinkedMessage, .MessageContainer-module__replyLineFromLinkedMessage) {
+  display: none !important;
+}
+
+/* Beeper Clean: WhatsApp-style quote inset inside a shared message bubble.
+   The first two grid rows contain the quote and message; footer stays outside. */
+.bubble-mode .message-container:not(.type-action) .message-main:has(> .linked-message):has(> .message-click-boundary .message-contents-container.hasText) {
+  position: relative;
+  isolation: isolate;
+  width: fit-content !important;
+  max-width: 75cqw;
+  grid-template-columns: auto minmax(0, 1fr);
+  margin-right: auto;
+  --clean-reply-bubble: var(--color-background-message-bubble-received);
+  --clean-quote-inset: rgba(0, 0, 0, .06);
+  --clean-quote-text: var(--clean-muted);
+  --clean-quote-name: var(--clean-accent);
+  --clean-quote-stripe: var(--clean-accent);
+}
+.bubble-mode .message-container.is-sender .message-main:has(> .linked-message):has(> .message-click-boundary .message-contents-container.hasText) {
+  margin-left: auto;
+  margin-right: 0;
+  --clean-reply-bubble: var(--color-background-message-bubble-sent);
+  --clean-quote-inset: rgba(0, 0, 0, .16);
+  --clean-quote-text: rgba(255, 255, 255, .88);
+  --clean-quote-name: #ffffff;
+  --clean-quote-stripe: rgba(255, 255, 255, .7);
+}
+.bubble-mode .message-container .message-main:has(> .linked-message):has(> .message-click-boundary .message-contents-container.hasText)::before {
+  content: "";
+  grid-area: 1 / 2 / 3 / 3;
+  align-self: stretch;
+  justify-self: stretch;
+  background: var(--clean-reply-bubble);
+  border-radius: 12px;
+  pointer-events: none;
+  z-index: -1;
+}
+.bubble-mode .message-container .message-main:has(> .message-click-boundary .message-contents-container.hasText) > .linked-message {
+  width: auto !important;
+  max-width: calc(100% - 12px) !important;
+  justify-self: stretch !important;
+  align-self: stretch !important;
+  margin: 6px 6px 0 !important;
+  padding: 5px 8px !important;
+  border-left: 3px solid var(--clean-quote-stripe) !important;
+  border-radius: 5px !important;
+  background: var(--clean-quote-inset) !important;
+  color: var(--clean-quote-text) !important;
+}
+.bubble-mode .message-container .message-main:has(> .message-click-boundary .message-contents-container.hasText) > .linked-message .linked-sender-name {
+  color: var(--clean-quote-name) !important;
+  font-weight: 700 !important;
+}
+.bubble-mode .message-container .message-main:has(> .linked-message) > .message-click-boundary:has(.message-contents-container.hasText) {
+  width: 100%;
+  justify-self: stretch !important;
+}
+.bubble-mode .message-container .message-main:has(> .linked-message) > .message-click-boundary:has(.message-contents-container.hasText) .message-children main {
+  width: 100%;
+  max-width: 100%;
+  align-items: stretch;
+}
+.bubble-mode .message-container .message-main:has(> .linked-message) > .message-click-boundary .message-contents-container.hasText {
+  width: 100%;
+}
+.bubble-mode .message-container .message-main:has(> .linked-message) > .message-click-boundary .message-contents-container.hasText > .message-contents {
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent !important;
+}
+@media (prefers-color-scheme: dark) {
+  .bubble-mode .message-container:not(.is-sender) .message-main:has(> .linked-message):has(> .message-click-boundary .message-contents-container.hasText) {
+    --clean-quote-inset: rgba(255, 255, 255, .07);
+  }
+}
+
+/* Let reply text fill the shared quote bubble, rather than its old text width. */
+.bubble-mode .message-container .message-main:has(> .linked-message) > .message-click-boundary:has(.message-contents-container.hasText),
+.bubble-mode .message-container .message-main:has(> .linked-message) > .message-click-boundary:has(.message-contents-container.hasText) :is(.message-children, .message-children main, .message-contents-container.hasText, .message-contents-container.hasText > .message-contents, .message-text-container, .message-text) {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box;
+}
+.bubble-mode .message-container .message-main:has(> .linked-message) > .message-click-boundary:has(.message-contents-container.hasText) .message-children main {
+  align-items: stretch !important;
+  flex: 1 1 auto;
+}
+.bubble-mode .message-container .message-main:has(> .linked-message) > .message-click-boundary .message-text {
+  text-wrap: wrap !important;
+  text-align: start !important;
+}
+
+/* Hide decorative thread connectors; keep reply links and thread controls. */
+.reply-line-segment,
+.BrandReplyLineSegment-module__container {
+  display: none !important;
+}
+
+/* Give quoted replies a definite shared width so nested percentage widths
+   cannot shrink back to the reply's original, narrower text measurement. */
+.bubble-mode .message-container:not(.type-action) .message-main:has(> .linked-message):has(> .message-click-boundary .message-contents-container.hasText) {
+  width: 75cqw !important;
+  max-width: 100% !important;
+  grid-template-columns: 0 minmax(0, 1fr) !important;
+}
+.bubble-mode .message-container .message-main:has(> .linked-message) > .message-click-boundary:has(.message-contents-container.hasText) {
+  grid-area: 2 / 2 / 3 / 3 !important;
+  justify-self: stretch !important;
+  width: 100% !important;
+}
+.bubble-mode .message-container .message-main:has(> .linked-message) > .message-click-boundary:has(.message-contents-container.hasText) .message-children {
+  flex: 1 1 100% !important;
+  width: 100% !important;
+}
+.bubble-mode .message-container .message-main:has(> .linked-message) > .message-click-boundary:has(.message-contents-container.hasText) .message-children main {
+  flex: 1 1 100% !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+.bubble-mode .message-container .message-main:has(> .linked-message) > .message-click-boundary .message-contents-container.hasText,
+.bubble-mode .message-container .message-main:has(> .linked-message) > .message-click-boundary .message-contents-container.hasText > .message-contents {
+  flex: 1 1 100% !important;
+  width: 100% !important;
+  max-width: none !important;
+  align-self: stretch !important;
+}
+
+/* Use ordinary block layout for the reply body. The native outgoing flex
+   reversal and shrinking flex items can reserve space beside short replies. */
+.bubble-mode .message-container:not(.type-action) .message-main:has(> .linked-message):has(> .message-click-boundary .message-contents-container.hasText) {
+  grid-template-columns: auto minmax(0, 1fr) !important;
+}
+.bubble-mode .message-container .message-main:has(> .linked-message) > .message-click-boundary:has(.message-contents-container.hasText) .message-children,
+.bubble-mode .message-container .message-main:has(> .linked-message) > .message-click-boundary:has(.message-contents-container.hasText) .message-children main,
+.bubble-mode .message-container .message-main:has(> .linked-message) > .message-click-boundary .message-contents-container.hasText,
+.bubble-mode .message-container .message-main:has(> .linked-message) > .message-click-boundary .message-contents-container.hasText > .message-contents {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  flex: 0 0 100% !important;
+  box-sizing: border-box !important;
+  text-align: left !important;
+}
+.bubble-mode .message-container .message-main:has(> .linked-message) > .message-click-boundary .message-text-container,
+.bubble-mode .message-container .message-main:has(> .linked-message) > .message-click-boundary .message-text {
+  width: 100% !important;
+  max-width: none !important;
+  text-align: left !important;
+  text-wrap: wrap !important;
+}
+
+/* Match Facebook's visible artwork to the other ribbon icons.
+   Its 28-unit SVG canvas contains a 16-unit logo. */
+.account-switcher .filters-pane-list .brand-combined-icon > svg:has(> circle[fill="#0866FF"][r="8"]) {
+  transform: scale(1.7) !important;
+  transform-origin: center;
+}
+
+/* Hide the chat-list archive hover button; keep unread indicators visible. */
+.sidebar-thread .ThreadListItem-module__hoverActions:has([data-sentry-component="ArchiveIcon"]) {
+  display: none !important;
+}
+.sidebar-thread .ThreadListItem-module__wrapper:hover .ThreadListItem-module__hoverActions:has([data-sentry-component="ArchiveIcon"]) + .ThreadListItem-module__proIndicators {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+/* Quiet header feedback button. */
+.feedback-widget .feedback-btn {
+  color: var(--clean-subtle) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  line-height: 16px !important;
+  padding: 3px 6px !important;
+}
+.feedback-widget .feedback-btn:hover {
+  color: var(--clean-muted) !important;
+  background: rgba(var(--clean-text-rgb), .04) !important;
+  border-color: rgba(var(--clean-text-rgb), .10) !important;
+}
+
+/* Inter for the interface; preserve Beeper's separate monospace font token. */
+:root, body {
+  --font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple Color Emoji", "Segoe UI Emoji", sans-serif !important;
+}
+body {
+  font-family: var(--font-family) !important;
+}
+
+/* Slightly heavier Inter: regular → medium, emphasized → bold. */
+:root, body {
+  --font-weight-regular: 500 !important;
+  --font-weight-emphasized: 700 !important;
+}
+body,
+button,
+input,
+textarea,
+select,
+.message-contents,
+.ThreadListItem-module__preview,
+.ThreadListItem-module__body,
+.ThreadListItem-module__timestamp {
+  font-weight: 500 !important;
+}
+.ThreadListItem-module__title,
+.MessageSender-module__senderName {
+  font-weight: 700 !important;
+}
+
+/* Pale gray edges keep white image attachments distinct from the chat. */
+:root, body {
+  --clean-image-border: #dedee0;
+}
+@media (prefers-color-scheme: dark) {
+  :root, body {
+    --clean-image-border: #515157;
+  }
+}
+.message-container :is(.message-attachments-container, .message-attachments) .enhanced-img {
+  outline: 1px solid var(--clean-image-border) !important;
+  outline-offset: -1px;
+}
+
+/* Beeper Clean: Circle / outlined ribbon icons. */
+.account-switcher .accounts .sidebar-button {
+  --clean-ribbon-color: light-dark(#657184, #a3afc2);
+}
+.account-switcher .accounts .sidebar-button > button {
+  position: relative;
+  isolation: isolate;
+  color: var(--clean-ribbon-color) !important;
+}
+.account-switcher .accounts .sidebar-button > button::before {
+  content: "";
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--clean-ribbon-color) 13%, var(--clean-sidebar));
+  pointer-events: none;
+  z-index: -1;
+}
+.account-switcher .accounts .sidebar-button > button > :is(svg, [class*="sfSymbolIcon"], [class*="materialIcon"]) {
+  width: 20px !important;
+  height: 20px !important;
+  color: inherit !important;
+}
+.account-switcher .accounts .LabelSpaceIcon-module__wrapper {
+  background: transparent !important;
+  color: inherit !important;
+}
+.account-switcher .accounts .sidebar-button:has(.LabelSpaceIcon-module__wrapper) {
+  --clean-ribbon-color: light-dark(#138784, #63c8bf);
+}
+/* Utility colors follow the current utility order; network colors below are
+   identified by their native artwork, independently of account order. */
+.account-switcher .accounts > .account-container:nth-child(1) .sidebar-button {
+  --clean-ribbon-color: light-dark(#3e62bd, #94b3ff);
+}
+.account-switcher .accounts > .account-container:nth-child(4) .sidebar-button:not(:has(.brand-combined-icon)) {
+  --clean-ribbon-color: light-dark(#b07813, #edc166);
+}
+.account-switcher .accounts > .account-container:nth-child(5) .sidebar-button:not(:has(.brand-combined-icon)) {
+  --clean-ribbon-color: light-dark(#b16932, #e5aa7c);
+}
+.account-switcher .accounts > .account-container:nth-child(6) .sidebar-button:not(:has(.brand-combined-icon)) {
+  --clean-ribbon-color: light-dark(#8560af, #c3a0e9);
+}
+
+/* Beeper */
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -5 24 28"]) {
+  --clean-ribbon-color: light-dark(#6656d9, #b0a3ff);
+  --clean-ribbon-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M21%2015a2%202%200%200%201-2%202H7l-4%204V5a2%202%200%200%201%202-2h14a2%202%200%200%201%202%202Z%22%2F%3E%3Cpath%20d%3D%22M7%207h10M7%2011h7%22%2F%3E%3C%2Fsvg%3E");
+}
+
+/* WhatsApp */
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 28 27"]) {
+  --clean-ribbon-color: light-dark(#198857, #6bcea0);
+  --clean-ribbon-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M22%2016.9v3a2%202%200%200%201-2.2%202%2019.8%2019.8%200%200%201-8.6-3.1%2019.5%2019.5%200%200%201-6-6%2019.8%2019.8%200%200%201-3.1-8.7A2%202%200%200%201%204.1%202h3a2%202%200%200%201%202%201.7c.1%201%20.3%201.9.7%202.8a2%202%200%200%201-.5%202.1L8%209.9a16%2016%200%200%200%206%206l1.3-1.3a2%202%200%200%201%202.1-.5c.9.4%201.8.6%202.8.7a2%202%200%200%201%201.8%202.1Z%22%2F%3E%3C%2Fsvg%3E");
+}
+
+/* Telegram */
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-3 -4 27 23"]) {
+  --clean-ribbon-color: light-dark(#1687b7, #6bc7ed);
+  --clean-ribbon-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m22%202-7%2020-4-9-9-4Z%22%2F%3E%3Cpath%20d%3D%22M22%202%2011%2013%22%2F%3E%3C%2Fsvg%3E");
+}
+
+/* X */
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-6 -6 28 28"]) {
+  --clean-ribbon-color: light-dark(#45454b, #c6c6d0);
+  --clean-ribbon-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22m.061.866%206.161%207.87-6.199%206.399H1.42l5.429-5.603%204.384%205.603h4.748L9.472%206.822%2015.243.866h-1.396l-4.999%205.16L4.81.866H.061m2.052.981h2.18l9.633%2012.306h-2.181z%22%2F%3E%3C%2Fsvg%3E");
+}
+
+/* Facebook */
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="0 0 28 28"]) {
+  --clean-ribbon-color: light-dark(#2464cf, #8ab4ff);
+  --clean-ribbon-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%228%207%2012%2017%22%3E%3Cpath%20d%3D%22M12.057%2016.457v5.6h2.914v-5.6h2.172L17.6%2014h-2.629v-.686c0-1.885.858-1.943%202.743-1.943V9.143c-5.428-.743-5.657%201.943-5.657%204.171V14H10.4v2.457z%22%2F%3E%3C%2Fsvg%3E");
+}
+
+/* iMessage */
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 28 26"]) {
+  --clean-ribbon-color: light-dark(#5b8e21, #a9d66a);
+  --clean-ribbon-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M21%2011.5a8.4%208.4%200%200%201-.9%203.8%208.5%208.5%200%200%201-7.6%204.7%208.4%208.4%200%200%201-3.8-.9L3%2021l1.9-5.7a8.4%208.4%200%200%201-.9-3.8%208.5%208.5%200%200%201%204.7-7.6%208.4%208.4%200%200%201%203.8-.9h.5a8.5%208.5%200%200%201%208%208v.5Z%22%2F%3E%3C%2Fsvg%3E");
+}
+
+/* Signal */
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 26 26"]) {
+  --clean-ribbon-color: light-dark(#4e56cb, #a0a7ff);
+  --clean-ribbon-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M21%2011.5a8.5%208.5%200%200%201-8.5%208.5%208.4%208.4%200%200%201-3.8-.9L3%2021l1.9-5.7a8.5%208.5%200%201%201%2016.1-3.8Z%22%20stroke-dasharray%3D%222%202%22%2F%3E%3C%2Fsvg%3E");
+}
+
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -5 24 28"]) > button .brand-combined-icon,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 28 27"]) > button .brand-combined-icon,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-3 -4 27 23"]) > button .brand-combined-icon,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-6 -6 28 28"]) > button .brand-combined-icon,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="0 0 28 28"]) > button .brand-combined-icon,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 28 26"]) > button .brand-combined-icon,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 26 26"]) > button .brand-combined-icon {
+  visibility: hidden !important;
+}
+
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -5 24 28"]) > button::after,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 28 27"]) > button::after,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-3 -4 27 23"]) > button::after,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-6 -6 28 28"]) > button::after,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="0 0 28 28"]) > button::after,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 28 26"]) > button::after,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 26 26"]) > button::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--clean-ribbon-color);
+  -webkit-mask: var(--clean-ribbon-mask) center / contain no-repeat;
+  mask: var(--clean-ribbon-mask) center / contain no-repeat;
+  pointer-events: none;
+}
+
+/* Beeper Clean: white sidebar experiment — remove this block to revert. */
+@media (prefers-color-scheme: light) {
+  :root, body {
+    --clean-sidebar: #ffffff !important;
+  }
+  .left,
+  .account-switcher,
+  .threads,
+  .filters-pane-list {
+    background: #ffffff !important;
+  }
+}
+
+/* Draw the chat-list divider above its opaque child panels. */
+.left::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--clean-border);
+  z-index: 50;
+  pointer-events: none;
+}
+
+/* Widen the actual row area instead of painting into the clipped gutter.
+   Compensate inside each row to keep avatars and text in place. */
+.threads:has(.sidebar-thread) {
+  padding-left: 2px !important;
+}
+.threads:has(.sidebar-thread) .ThreadListItem-module__internal {
+  padding-left: 14px !important;
+}
+body:not(.custom-scrollbars) .threads:has(.sidebar-thread) .virtual-list {
+  padding-right: max(0px, calc(var(--dimension-400) - 6px)) !important;
+}
+body:not(.custom-scrollbars) .threads:has(.sidebar-thread) .ThreadListItem-module__internal {
+  padding-right: 14px !important;
+}
+
+/* Keep the compact header, reserving the part of the native stoplight area
+   that extends beyond the narrowed ribbon. Full-screen needs no reservation. */
+body:has(.account-switcher .filters-pane-list--mac-spacing) .left-pane-header .tab-bar {
+  padding-left: max(0px, calc(var(--mac-traffic-lights-width, 60px) + 12px - var(--account-switcher-width, 44px))) !important;
+  box-sizing: border-box;
+  min-width: 0;
+}
+.left-pane-header .CurrentAccount-module__currentAccount {
+  min-width: 0;
+}
+.left::after {
+  top: var(--clean-sidebar-header-height) !important;
+}
+
+/* Align the current inbox/account dropdown beside the filter controls. */
+.left-pane-header .tab-bar button.CurrentAccount-module__currentAccount {
+  justify-content: flex-end !important;
+  padding-right: 10px !important;
+  box-sizing: border-box;
+}
+.left-pane-header .CurrentAccount-module__sidebarHeader {
+  align-items: flex-end !important;
+  text-align: right;
+}
+
+/* Beeper Clean: filled network symbols inline with message previews. */
+.sidebar-thread .ThreadListItem-module__wrapper[data-platform="Beeper"]:has(.ThreadListItem-module__platformIcon) {
+  --clean-preview-network-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-1%20-1%2018%2020%22%3E%3Cpath%20fill%3D%22%236656d9%22%20fill-rule%3D%22evenodd%22%20d%3D%22M.74%204.844C.74%202.272%202.912.156%205.658.156h4.065c2.715%200%204.916%202.094%204.916%204.688a4.6%204.6%200%200%201-1.53%203.402l-.932.887c1.357.756%202.45%201.943%202.45%203.552%200%202.41-2.044%204.139-4.564%204.139h-6.87V8.906C1.74%208.096.74%206.582.74%204.846zm4.916-3.386c-1.986%200-3.553%201.527-3.553%203.386S3.67%208.229%205.656%208.229H7.35l-.942%204.55%205.743-5.46a3.34%203.34%200%200%200%201.126-2.475c0-1.889-1.618-3.405-3.554-3.386H5.656%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E");
+}
+@media (prefers-color-scheme: dark) {
+.sidebar-thread .ThreadListItem-module__wrapper[data-platform="Beeper"]:has(.ThreadListItem-module__platformIcon) { --clean-preview-network-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-1%20-1%2018%2020%22%3E%3Cpath%20fill%3D%22%23b0a3ff%22%20fill-rule%3D%22evenodd%22%20d%3D%22M.74%204.844C.74%202.272%202.912.156%205.658.156h4.065c2.715%200%204.916%202.094%204.916%204.688a4.6%204.6%200%200%201-1.53%203.402l-.932.887c1.357.756%202.45%201.943%202.45%203.552%200%202.41-2.044%204.139-4.564%204.139h-6.87V8.906C1.74%208.096.74%206.582.74%204.846zm4.916-3.386c-1.986%200-3.553%201.527-3.553%203.386S3.67%208.229%205.656%208.229H7.35l-.942%204.55%205.743-5.46a3.34%203.34%200%200%200%201.126-2.475c0-1.889-1.618-3.405-3.554-3.386H5.656%22%20clip-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E"); }
+}
+.sidebar-thread .ThreadListItem-module__wrapper[data-platform="WhatsApp"]:has(.ThreadListItem-module__platformIcon) {
+  --clean-preview-network-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-1%20-1%2022%2022%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M10.435.207C5.195.207.933%204.28.933%209.287a8.7%208.7%200%200%200%201.353%204.671L.891%2018.495l4.858-1.31a9.8%209.8%200%200%200%204.688%201.18c5.24%200%209.502-4.072%209.502-9.079%200-5.006-4.263-9.08-9.502-9.08z%22%2F%3E%3Cpath%20fill%3D%22%231EC843%22%20d%3D%22M10.436%201.414c-4.55%200-8.239%203.524-8.239%207.872%200%201.665.543%203.211%201.466%204.482l-.914%202.971%203.186-.858a8.47%208.47%200%200%200%204.501%201.279c4.55%200%208.239-3.525%208.239-7.873%200-4.347-3.689-7.872-8.239-7.872%22%2F%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M7.867%205.327c.074.156.685%201.44.798%201.719.115.277.052.466-.115.704a4.6%204.6%200%200%201-.52.625c-.144.14-.165.278-.02.507s.727%201.1%201.454%201.666%201.547%201.002%201.911%201.081c.363.08.415.03.572-.148.155-.179.695-.833.695-.833s.115-.298.53-.149c.415.15%201.973.884%201.973.884s.302.06.28.377c-.02.317.135%201.27-1.309%201.895s-3.707-.406-4.257-.745-2.575-1.468-3.935-3.908.135-3.64.425-3.898.805-.185.977-.17c.322.03.465.235.54.393%22%2F%3E%3C%2Fsvg%3E");
+}
+.sidebar-thread .ThreadListItem-module__wrapper[data-platform="Telegram"]:has(.ThreadListItem-module__platformIcon) {
+  --clean-preview-network-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-1%20-2%2022%2020%22%3E%3Cpath%20fill%3D%22%231687b7%22%20d%3D%22M.831%206.99%2016.913.693c.796-.312%201.644.329%201.509%201.141L16.473%2013.59c-.158.952-1.291%201.435-2.137.908L8.67%2010.974a.86.86%200%200%201-.13-1.381l5.384-4.842c.297-.267-.071-.714-.412-.499L6.664%208.675a3.99%203.99%200%200%201-3.642.34L.828%208.132a.607.607%200%200%201%20.006-1.14z%22%2F%3E%3C%2Fsvg%3E");
+}
+@media (prefers-color-scheme: dark) {
+.sidebar-thread .ThreadListItem-module__wrapper[data-platform="Telegram"]:has(.ThreadListItem-module__platformIcon) { --clean-preview-network-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-1%20-2%2022%2020%22%3E%3Cpath%20fill%3D%22%236bc7ed%22%20d%3D%22M.831%206.99%2016.913.693c.796-.312%201.644.329%201.509%201.141L16.473%2013.59c-.158.952-1.291%201.435-2.137.908L8.67%2010.974a.86.86%200%200%201-.13-1.381l5.384-4.842c.297-.267-.071-.714-.412-.499L6.664%208.675a3.99%203.99%200%200%201-3.642.34L.828%208.132a.607.607%200%200%201%20.006-1.14z%22%2F%3E%3C%2Fsvg%3E"); }
+}
+.sidebar-thread .ThreadListItem-module__wrapper[data-platform="X"]:has(.ThreadListItem-module__platformIcon) {
+  --clean-preview-network-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-1%20-1%2018%2018%22%3E%3Cpath%20fill%3D%22%2345454b%22%20d%3D%22m.061.866%206.161%207.87-6.199%206.399H1.42l5.429-5.603%204.384%205.603h4.748L9.472%206.822%2015.243.866h-1.396l-4.999%205.16L4.81.866H.061m2.052.981h2.18l9.633%2012.306h-2.181z%22%2F%3E%3C%2Fsvg%3E");
+}
+@media (prefers-color-scheme: dark) {
+.sidebar-thread .ThreadListItem-module__wrapper[data-platform="X"]:has(.ThreadListItem-module__platformIcon) { --clean-preview-network-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-1%20-1%2018%2018%22%3E%3Cpath%20fill%3D%22%23c6c6d0%22%20d%3D%22m.061.866%206.161%207.87-6.199%206.399H1.42l5.429-5.603%204.384%205.603h4.748L9.472%206.822%2015.243.866h-1.396l-4.999%205.16L4.81.866H.061m2.052.981h2.18l9.633%2012.306h-2.181z%22%2F%3E%3C%2Fsvg%3E"); }
+}
+.sidebar-thread .ThreadListItem-module__wrapper[data-platform="Twitter"]:has(.ThreadListItem-module__platformIcon) {
+  --clean-preview-network-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-1%20-1%2018%2018%22%3E%3Cpath%20fill%3D%22%2345454b%22%20d%3D%22m.061.866%206.161%207.87-6.199%206.399H1.42l5.429-5.603%204.384%205.603h4.748L9.472%206.822%2015.243.866h-1.396l-4.999%205.16L4.81.866H.061m2.052.981h2.18l9.633%2012.306h-2.181z%22%2F%3E%3C%2Fsvg%3E");
+}
+@media (prefers-color-scheme: dark) {
+.sidebar-thread .ThreadListItem-module__wrapper[data-platform="Twitter"]:has(.ThreadListItem-module__platformIcon) { --clean-preview-network-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-1%20-1%2018%2018%22%3E%3Cpath%20fill%3D%22%23c6c6d0%22%20d%3D%22m.061.866%206.161%207.87-6.199%206.399H1.42l5.429-5.603%204.384%205.603h4.748L9.472%206.822%2015.243.866h-1.396l-4.999%205.16L4.81.866H.061m2.052.981h2.18l9.633%2012.306h-2.181z%22%2F%3E%3C%2Fsvg%3E"); }
+}
+.sidebar-thread .ThreadListItem-module__wrapper[data-platform="Facebook"]:has(.ThreadListItem-module__platformIcon) {
+  --clean-preview-network-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%225%205%2018%2018%22%3E%3Ccircle%20cx%3D%2214%22%20cy%3D%2214%22%20r%3D%228%22%20fill%3D%22%230866FF%22%2F%3E%3Cpath%20fill%3D%22%230866FF%22%20d%3D%22M22%2014a8%208%200%201%201-16%200%208%208%200%200%201%2016%200%22%2F%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M12.057%2016.457v5.6h2.914v-5.6h2.172L17.6%2014h-2.629v-.686c0-1.885.858-1.943%202.743-1.943V9.143c-5.428-.743-5.657%201.943-5.657%204.171V14H10.4v2.457z%22%2F%3E%3C%2Fsvg%3E");
+}
+.sidebar-thread .ThreadListItem-module__wrapper[data-platform="Messenger"]:has(.ThreadListItem-module__platformIcon) {
+  --clean-preview-network-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%225%205%2018%2018%22%3E%3Ccircle%20cx%3D%2214%22%20cy%3D%2214%22%20r%3D%228%22%20fill%3D%22%230866FF%22%2F%3E%3Cpath%20fill%3D%22%230866FF%22%20d%3D%22M22%2014a8%208%200%201%201-16%200%208%208%200%200%201%2016%200%22%2F%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M12.057%2016.457v5.6h2.914v-5.6h2.172L17.6%2014h-2.629v-.686c0-1.885.858-1.943%202.743-1.943V9.143c-5.428-.743-5.657%201.943-5.657%204.171V14H10.4v2.457z%22%2F%3E%3C%2Fsvg%3E");
+}
+.sidebar-thread .ThreadListItem-module__wrapper[data-platform="iMessage"]:has(.ThreadListItem-module__platformIcon) {
+  --clean-preview-network-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-1%20-2%2023%2023%22%3E%3Cpath%20fill%3D%22%23329b35%22%20d%3D%22M10%20.892C4.766.892.523%204.268.523%208.435c.005%202.646%201.752%205.096%204.604%206.458-.372.798-.933%201.547-1.657%202.215%201.404-.236%202.721-.73%203.849-1.445.87.205%201.773.31%202.681.312%205.234%200%209.476-3.376%209.476-7.542%200-4.165-4.242-7.542-9.476-7.542z%22%2F%3E%3C%2Fsvg%3E");
+}
+@media (prefers-color-scheme: dark) {
+.sidebar-thread .ThreadListItem-module__wrapper[data-platform="iMessage"]:has(.ThreadListItem-module__platformIcon) { --clean-preview-network-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-1%20-2%2023%2023%22%3E%3Cpath%20fill%3D%22%2380d784%22%20d%3D%22M10%20.892C4.766.892.523%204.268.523%208.435c.005%202.646%201.752%205.096%204.604%206.458-.372.798-.933%201.547-1.657%202.215%201.404-.236%202.721-.73%203.849-1.445.87.205%201.773.31%202.681.312%205.234%200%209.476-3.376%209.476-7.542%200-4.165-4.242-7.542-9.476-7.542z%22%2F%3E%3C%2Fsvg%3E"); }
+}
+.sidebar-thread .ThreadListItem-module__wrapper[data-platform="Signal"]:has(.ThreadListItem-module__platformIcon) {
+  --clean-preview-network-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-2%20-2%2022%2022%22%3E%3Cpath%20fill%3D%22%234e56cb%22%20d%3D%22M8.998%202.302c-3.871%200-7.01%203-7.01%206.698%200%201.305.39%202.522%201.067%203.552l-.694%202.787%202.914-.663a7.2%207.2%200%200%200%203.723%201.022c3.871%200%207.01-2.999%207.01-6.698s-3.139-6.698-7.01-6.698M14.517%203.75q.396.38.727.804l.763-.492a8.798%208.798%200%200%200-1.88-1.786l-.51.732q.473.334.898.742zM16.427%204.654l-.763.492c.408.64.71%201.335.897%202.063l.902-.172a8%208%200%200%200-1.036-2.383%22%2F%3E%3Cpath%20fill%3D%22%234e56cb%22%20d%3D%22M2.76%204.606A7.7%207.7%200%200%201%204.359%203.05l-.513-.73a8.6%208.6%200%200%200-1.849%201.8zM15.23%2013.435q-.362.454-.8.861a8%208%200%200%201-.825.667l.511.732q.5-.349.952-.767.508-.471.923-1.002zM1.22%209.419q-.03-.751.095-1.488l-.902-.169A8.2%208.2%200%200%200%20.3%209.452q.017.45.074.86l.904-.175a8%208%200%200%201-.06-.718M16.786%209.035a7%207%200%200%201-.087%201.079l.903.172q.1-.616.104-1.248a8%208%200%200%200-.1-1.302l-.902.172q.084.555.082%201.126M10.902%201.782a7.9%207.9%200%200%201%202.096.83l.509-.731a8.8%208.8%200%200%200-2.423-.96zM7.858%201.64q.56-.08%201.138-.08h.001q.595%200%201.171.082L10.35.78a9%209%200%200%200-1.353-.1h-.001q-.67%200-1.316.096zM10.11%2016.352q-.714.105-1.45.086a10%2010%200%200%201-.857-.058l-.184.862a10%2010%200%200%200%202.667-.028zM1.466%207.232a7.5%207.5%200%200%201%20.883-2.03l-.766-.489a8.4%208.4%200%200%200-1.02%202.35zM16.552%2010.814a7.1%207.1%200%200%201-.902%202.032l.765.49a8%208%200%200%200%201.039-2.35zM4.46%201.916l.515.73a7.8%207.8%200%200%201%202.151-.866L6.948.916c-.88.205-1.718.54-2.487%201M13.496%2016.09l-.511-.732a8%208%200%200%201-2.143.851l.175.864a9%209%200%200%200%202.479-.983M5.181%2015.488a.48.48%200%200%200-.355-.055l-1.03.241.227.851.836-.197a7%207%200%200%200%202.021.787l.185-.86a6.2%206.2%200%200%201-1.884-.767M1.134%2013.71l.888.23.254-.929a.42.42%200%200%200-.055-.344%205.8%205.8%200%200%201-.811-1.826l-.904.175c.167.692.437%201.321.831%201.955zM3.072%2015.847l-1.507.354a.1.1%200%200%201-.102-.027c-.019-.02-.04-.052-.028-.097l.397-1.445-.888-.23-.398%201.453a.94.94%200%200%200%20.261.936c.257.248.621.348.977.263l1.515-.356z%22%2F%3E%3C%2Fsvg%3E");
+}
+@media (prefers-color-scheme: dark) {
+.sidebar-thread .ThreadListItem-module__wrapper[data-platform="Signal"]:has(.ThreadListItem-module__platformIcon) { --clean-preview-network-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-2%20-2%2022%2022%22%3E%3Cpath%20fill%3D%22%23a0a7ff%22%20d%3D%22M8.998%202.302c-3.871%200-7.01%203-7.01%206.698%200%201.305.39%202.522%201.067%203.552l-.694%202.787%202.914-.663a7.2%207.2%200%200%200%203.723%201.022c3.871%200%207.01-2.999%207.01-6.698s-3.139-6.698-7.01-6.698M14.517%203.75q.396.38.727.804l.763-.492a8.798%208.798%200%200%200-1.88-1.786l-.51.732q.473.334.898.742zM16.427%204.654l-.763.492c.408.64.71%201.335.897%202.063l.902-.172a8%208%200%200%200-1.036-2.383%22%2F%3E%3Cpath%20fill%3D%22%23a0a7ff%22%20d%3D%22M2.76%204.606A7.7%207.7%200%200%201%204.359%203.05l-.513-.73a8.6%208.6%200%200%200-1.849%201.8zM15.23%2013.435q-.362.454-.8.861a8%208%200%200%201-.825.667l.511.732q.5-.349.952-.767.508-.471.923-1.002zM1.22%209.419q-.03-.751.095-1.488l-.902-.169A8.2%208.2%200%200%200%20.3%209.452q.017.45.074.86l.904-.175a8%208%200%200%201-.06-.718M16.786%209.035a7%207%200%200%201-.087%201.079l.903.172q.1-.616.104-1.248a8%208%200%200%200-.1-1.302l-.902.172q.084.555.082%201.126M10.902%201.782a7.9%207.9%200%200%201%202.096.83l.509-.731a8.8%208.8%200%200%200-2.423-.96zM7.858%201.64q.56-.08%201.138-.08h.001q.595%200%201.171.082L10.35.78a9%209%200%200%200-1.353-.1h-.001q-.67%200-1.316.096zM10.11%2016.352q-.714.105-1.45.086a10%2010%200%200%201-.857-.058l-.184.862a10%2010%200%200%200%202.667-.028zM1.466%207.232a7.5%207.5%200%200%201%20.883-2.03l-.766-.489a8.4%208.4%200%200%200-1.02%202.35zM16.552%2010.814a7.1%207.1%200%200%201-.902%202.032l.765.49a8%208%200%200%200%201.039-2.35zM4.46%201.916l.515.73a7.8%207.8%200%200%201%202.151-.866L6.948.916c-.88.205-1.718.54-2.487%201M13.496%2016.09l-.511-.732a8%208%200%200%201-2.143.851l.175.864a9%209%200%200%200%202.479-.983M5.181%2015.488a.48.48%200%200%200-.355-.055l-1.03.241.227.851.836-.197a7%207%200%200%200%202.021.787l.185-.86a6.2%206.2%200%200%201-1.884-.767M1.134%2013.71l.888.23.254-.929a.42.42%200%200%200-.055-.344%205.8%205.8%200%200%201-.811-1.826l-.904.175c.167.692.437%201.321.831%201.955zM3.072%2015.847l-1.507.354a.1.1%200%200%201-.102-.027c-.019-.02-.04-.052-.028-.097l.397-1.445-.888-.23-.398%201.453a.94.94%200%200%200%20.261.936c.257.248.621.348.977.263l1.515-.356z%22%2F%3E%3C%2Fsvg%3E"); }
+}
+
+.sidebar-thread .ThreadListItem-module__wrapper:is([data-platform="Beeper"],[data-platform="WhatsApp"],[data-platform="Telegram"],[data-platform="X"],[data-platform="Twitter"],[data-platform="Facebook"],[data-platform="Messenger"],[data-platform="iMessage"],[data-platform="Signal"]):has(.ThreadListItem-module__platformIcon) .ThreadListItem-module__platformIcon {
+  display: none !important;
+}
+.sidebar-thread .ThreadListItem-module__wrapper:is([data-platform="Beeper"],[data-platform="WhatsApp"],[data-platform="Telegram"],[data-platform="X"],[data-platform="Twitter"],[data-platform="Facebook"],[data-platform="Messenger"],[data-platform="iMessage"],[data-platform="Signal"]):has(.ThreadListItem-module__platformIcon) .ThreadListItem-module__avatar > span {
+  mask: none !important;
+  -webkit-mask: none !important;
+}
+.sidebar-thread .ThreadListItem-module__wrapper:is([data-platform="Beeper"],[data-platform="WhatsApp"],[data-platform="Telegram"],[data-platform="X"],[data-platform="Twitter"],[data-platform="Facebook"],[data-platform="Messenger"],[data-platform="iMessage"],[data-platform="Signal"]):has(.ThreadListItem-module__platformIcon) .ThreadListItem-module__body {
+  column-gap: 5px !important;
+}
+.sidebar-thread .ThreadListItem-module__wrapper:is([data-platform="Beeper"],[data-platform="WhatsApp"],[data-platform="Telegram"],[data-platform="X"],[data-platform="Twitter"],[data-platform="Facebook"],[data-platform="Messenger"],[data-platform="iMessage"],[data-platform="Signal"]):has(.ThreadListItem-module__platformIcon) .ThreadListItem-module__body::before {
+  content: "";
+  display: block;
+  flex: 0 0 14px;
+  width: 14px;
+  height: 14px;
+  margin-top: 1px;
+  background: var(--clean-preview-network-icon) center / contain no-repeat;
+}
+.sidebar-thread .ThreadListItem-module__wrapper:is([data-platform="Beeper"],[data-platform="WhatsApp"],[data-platform="Telegram"],[data-platform="X"],[data-platform="Twitter"],[data-platform="Facebook"],[data-platform="Messenger"],[data-platform="iMessage"],[data-platform="Signal"]):has(.ThreadListItem-module__platformIcon) .ThreadListItem-module__preview {
+  min-width: 0;
+}
+
+/* Size text bubbles against the conversation's existing message container,
+   not the whole app window. Short ordinary messages remain content-sized. */
+.bubble-mode .message-container:not(.type-action) .message-children main {
+  max-width: 75cqw !important;
+}
+.bubble-mode .message-container:not(.type-action) .message-contents {
+  max-width: 100% !important;
+}
+.bubble-mode .message-container:not(.type-action) .message-text {
+  text-wrap: wrap !important;
+}
+
+/* Frosted Inbox toolbar, with the list scrolling underneath it. */
+:root, body {
+  --clean-inbox-header-tint: rgba(255, 255, 255, .74);
+}
+@media (prefers-color-scheme: dark) {
+  :root, body {
+    --clean-inbox-header-tint: rgba(28, 28, 30, .76);
+  }
+}
+.threads > .left-pane-header {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--clean-sidebar-header-height);
+  min-height: var(--clean-sidebar-header-height) !important;
+  z-index: 30;
+  background: var(--clean-inbox-header-tint) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  backdrop-filter: blur(14px) saturate(120%);
+}
+.threads > .left-pane-header .tab-bar-container,
+.threads > .left-pane-header .tab-bar {
+  background: transparent !important;
+}
+.threads .virtual-list,
+.threads .inbox-zero {
+  padding-top: var(--clean-sidebar-header-height) !important;
+  scroll-padding-top: var(--clean-sidebar-header-height);
+  box-sizing: border-box;
+}
+@media (prefers-reduced-transparency: reduce) {
+  .threads > .left-pane-header {
+    background: var(--clean-bg) !important;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+/* Hidden hover actions must not consume the incoming bubble's width. */
+.bubble-mode .message-container:not(.type-action) .message-main:not(:has(> .linked-message)) > .message-click-boundary .message-children {
+  position: relative;
+  width: max-content !important;
+  max-width: 75cqw !important;
+}
+.bubble-mode .message-container:not(.type-action) .message-main:not(:has(> .linked-message)) > .message-click-boundary .message-children > main {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100% !important;
+}
+.bubble-mode .message-container:not(.type-action) .message-main:not(:has(> .linked-message)) > .message-click-boundary .message-children > .brand-message-flyover {
+  position: absolute !important;
+  left: 100%;
+  right: auto;
+  top: 50%;
+  margin: 0 !important;
+  transform: translateY(-50%);
+  width: max-content;
+}
+.bubble-mode .message-container.is-sender:not(.type-action) .message-main:not(:has(> .linked-message)) > .message-click-boundary .message-children > .brand-message-flyover {
+  left: auto;
+  right: 100%;
+}
+
+
+
+/* Selected messages: outline instead of brightness shading.
+   Outlines do not participate in layout, so text width stays unchanged. */
+.message-container.is-selected .message-contents,
+.message-container.is-selected .message-attachments-container {
+  filter: none !important;
+  outline: 2px solid var(--clean-accent) !important;
+  outline-offset: 1px;
+}
+/* Outline the shared quote/reply bubble as a whole. */
+.bubble-mode .message-container.is-selected .message-main:has(> .linked-message):has(> .message-click-boundary .message-contents-container.hasText)::before {
+  outline: 2px solid var(--clean-accent) !important;
+  outline-offset: 1px;
+}
+.bubble-mode .message-container.is-selected .message-main:has(> .linked-message) > .message-click-boundary .message-contents-container.hasText > .message-contents {
+  outline: none !important;
+}
+
+/* Keep a selected message and its outline above neighboring messages. */
+.message-container.is-selected {
+  position: relative;
+  z-index: 10;
+}
+
+/* Beeper Clean: one continuous frosted toolbar across the two panes. */
+:root, body {
+  --header-height: var(--clean-sidebar-header-height) !important;
+}
+.right-wrapper > .right.right-thread {
+  margin: 0 !important;
+  border-radius: 0 !important;
+  filter: none !important;
+}
+.threads > .left-pane-header,
+.right-wrapper .right-thread .right-pane-header {
+  top: 0 !important;
+  height: var(--clean-sidebar-header-height) !important;
+  min-height: var(--clean-sidebar-header-height) !important;
+  background: var(--clean-inbox-header-tint) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(120%) !important;
+  backdrop-filter: blur(14px) saturate(120%) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  box-sizing: border-box;
+}
+.right-wrapper .right-thread .right-pane-header {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+/* Center the chat identity inside the toolbar instead of floating beneath it. */
+.right-pane-header .thread-header-left {
+  top: 0 !important;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto !important;
+  max-width: calc(100% - 180px);
+  height: 100%;
+  justify-content: center;
+}
+.right-pane-header .thread-header-left .thread-header-card {
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 8px;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-width: 0;
+  max-width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+.right-pane-header .thread-header-left .thread-header-avatar {
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.right-pane-header .thread-header-avatar > *,
+.right-pane-header .thread-header-avatar :is(.participant-img, .participant-wrapper, .participant-avatar, .GroupAvatar-module__wrapper) {
+  width: 28px !important;
+  height: 28px !important;
+}
+.right-pane-header .thread-header-left .thread-header-info {
+  min-width: 0;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-radius: 0 !important;
+}
+.right-pane-header .thread-header-left .thread-header-name-row {
+  min-width: 0;
+}
+.left-pane-header .CurrentAccount-module__accountDisplayName,
+.right-pane-header .thread-header-left .thread-header-name {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  line-height: 20px !important;
+}
+.right-pane-header .thread-header-left .thread-header-name {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  margin: 0 !important;
+}
+.right-pane-header .thread-header-left .thread-header-status {
+  font-size: 11px;
+  line-height: 14px;
+}
+.right-pane-header .thread-header-right-buttons .btn-ghost {
+  background: transparent !important;
+}
+@media (prefers-reduced-transparency: reduce) {
+  .threads > .left-pane-header,
+  .right-wrapper .right-thread .right-pane-header {
+    background: var(--clean-bg) !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+}
+
+/* Compact, muted dates and times in the chat list. */
+.sidebar-thread .ThreadListItem-module__timestamp,
+.sidebar-thread.isSelected .ThreadListItem-module__timestamp {
+  color: light-dark(#939399, #9b9ba5) !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+}
+
+/* One aligned bottom edge across the shared frosted toolbar. */
+.threads > .left-pane-header::after,
+.right-wrapper .right-thread .right-pane-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--clean-border);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* One backdrop surface for the shared bar, instead of separate pane filters. */
+.home:has(.threads > .left-pane-header)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--clean-sidebar-header-height);
+  background: var(--clean-inbox-header-tint);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  backdrop-filter: blur(14px) saturate(120%);
+  z-index: 20;
+  pointer-events: none;
+}
+/* Let both sets of header controls paint above that shared surface.
+   These former pane stacking contexts would otherwise trap the controls. */
+.home:has(.threads > .left-pane-header) .left {
+  z-index: auto !important;
+  transform: none !important;
+}
+.home:has(.threads > .left-pane-header) .threads {
+  container-type: normal !important;
+}
+.home:has(.threads > .left-pane-header) .right-thread .conversation {
+  z-index: auto !important;
+}
+.home .threads > .left-pane-header,
+.home .right-wrapper .right-thread .right-pane-header {
+  background: transparent !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  z-index: 40 !important;
+}
+@media (prefers-reduced-transparency: reduce) {
+  .home:has(.threads > .left-pane-header)::before {
+    background: var(--clean-bg);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+/* Hide the header Feedback button. */
+.right-pane-header .feedback-widget {
+  display: none !important;
+}
+
+/* Give the first chat a little breathing room below the shared toolbar. */
+.threads .virtual-list,
+.threads .inbox-zero {
+  padding-top: calc(var(--clean-sidebar-header-height) + 4px) !important;
+  scroll-padding-top: calc(var(--clean-sidebar-header-height) + 4px);
+}
+
+/* Small label for forwarded messages, without an arrow or italics. */
+.ForwardedLabel-module__forwardedLabel {
+  gap: 4px !important;
+  margin-bottom: 5px !important;
+  align-items: baseline !important;
+  flex-wrap: wrap;
+  color: var(--clean-subtle) !important;
+}
+.ForwardedLabel-module__forwardedLabel .ForwardedLabel-module__label {
+  color: inherit !important;
+  gap: 0 !important;
+}
+.ForwardedLabel-module__label > :not(.ForwardedLabel-module__text) {
+  display: none !important;
+}
+.ForwardedLabel-module__forwardedLabel .ForwardedLabel-module__text {
+  font-size: 11px !important;
+  line-height: 16px !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  text-transform: uppercase;
+  letter-spacing: .055em !important;
+}
+.ForwardedLabel-module__forwardedLabel .ForwardedLabel-module__senderName {
+  font-size: 11px !important;
+  line-height: 16px !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  color: inherit !important;
+}
+.message-container.is-sender .message-contents .ForwardedLabel-module__forwardedLabel {
+  color: var(--color-text-on-accent-weak) !important;
+}
+.ForwardedLabel-module__forwardedLabel .ForwardedLabel-module__label.ForwardedLabel-module__isSender {
+  opacity: 1 !important;
+}
+
+/* Extra room below the final message keeps its selection outline visible. */
+.conversation .bottom-of-thread::after {
+  content: "";
+  display: block;
+  height: 6px;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+
+
+/* Floating unread circle: reserve horizontal room, not extra row height. */
+.sidebar-thread .ThreadListItem-module__actions:has(.ThreadListItem-module__unreadCount) {
+  position: relative;
+  min-width: 20px !important;
+  flex: 0 0 20px;
+  align-self: stretch;
+}
+.sidebar-thread .ThreadListItem-module__proIndicators:has(> .ThreadListItem-module__unreadCount) {
+  position: static;
+}
+.sidebar-thread .ThreadListItem-module__unreadCount {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+  width: 16px !important;
+  min-width: 16px !important;
+  height: 16px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  box-sizing: border-box;
+  font-size: 10px !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  font-variant-numeric: lining-nums tabular-nums;
+  text-align: center;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 1px 0 0 !important;
+}
+
+/* Keep the empty conversation pane as flat as the active-chat pane. */
+.right-wrapper > .right:not(.right-thread):not(.right-prefs) {
+  filter: none !important;
+  box-shadow: none !important;
+}
+
+/* Compact message hover actions and quick reactions. */
+.BrandMessageFlyover-module__flyover {
+  padding-inline: 3px !important;
+}
+.BrandMessageFlyover-module__flyover ul {
+  gap: 0 !important;
+}
+.BrandMessageFlyover-module__flyover button {
+  padding: 2px !important;
+  align-items: center;
+  justify-content: center;
+}
+.BrandMessageFlyover-module__flyover button > span {
+  font-size: 14px !important;
+  line-height: 1 !important;
+}
+.BrandMessageFlyover-module__flyover button :is(svg, img) {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+/* Mention badges need room for both the @ symbol and unread count. */
+.sidebar-thread .ThreadListItem-module__actions:has(.ThreadListItem-module__unreadCount > svg) {
+  min-width: 32px !important;
+  flex-basis: 32px !important;
+}
+.sidebar-thread .ThreadListItem-module__unreadCount:has(> svg) {
+  width: max-content !important;
+  min-width: 28px !important;
+  height: 16px !important;
+  padding: 0 4px !important;
+  border-radius: 999px !important;
+  gap: 2px !important;
+  white-space: nowrap;
+}
+.sidebar-thread .ThreadListItem-module__unreadCount > svg {
+  width: 10px !important;
+  height: 10px !important;
+  flex-shrink: 0;
+}
+
+/* Balance the visual size of quick reactions and action symbols. */
+.BrandMessageFlyover-module__flyover button.BrandMessageFlyover-module__emoji > span {
+  font-size: 16px !important;
+}
+.BrandMessageFlyover-module__flyover button.BrandMessageFlyover-module__emoji img {
+  width: 16px !important;
+  height: 16px !important;
+}
+.BrandMessageFlyover-module__flyover button:not(.BrandMessageFlyover-module__emoji) :is(.PlatformIcon-module__sfSymbolIcon, .PlatformIcon-module__materialIcon, svg) {
+  width: 15px !important;
+  height: 15px !important;
+  font-size: 15px !important;
+  flex-shrink: 0;
+}
+
+/* Audio selection follows the rounded player, not its attachment wrapper. */
+.message-container.is-selected .message-attachments-container:has(.audio-player),
+.message-container.is-selected .message-contents:has(.audio-player),
+.message-container [tabindex]:has(.audio-player):focus-visible {
+  outline: none !important;
+  filter: none !important;
+}
+.message-container.is-selected .audio-player,
+.message-container:has([tabindex]:has(.audio-player):focus-visible) .audio-player,
+.message-container .audio-player:focus-visible {
+  outline: 2px solid var(--clean-accent) !important;
+  outline-offset: 1px;
+  filter: none !important;
+}
+
+/* Match every audio selection/focus boundary to the player's corners. */
+.message-container:has(.audio-player) :is(.message-attachments-container, .message-contents, .message-click-boundary),
+.message-container [tabindex]:has(.audio-player),
+.message-container .audio-player {
+  border-radius: 22px !important;
+}
+
+/* A subtle halo around the selected message, without affecting layout. */
+.message-container.is-selected .message-contents,
+.message-container.is-selected .message-attachments-container,
+.message-container.is-selected .audio-player,
+.bubble-mode .message-container.is-selected .message-main:has(> .linked-message):has(> .message-click-boundary .message-contents-container.hasText)::before {
+  box-shadow: var(--clean-bubble-edge, 0 0 transparent), 0 0 6px 2px color-mix(in srgb, var(--clean-accent) 40%, transparent), 0 0 14px 3px color-mix(in srgb, var(--clean-accent) 25%, transparent) !important;
+}
+/* Keep a single halo around composite audio and quoted bubbles. */
+.message-container.is-selected .message-attachments-container:has(.audio-player),
+.message-container.is-selected .message-contents:has(.audio-player),
+.bubble-mode .message-container.is-selected .message-main:has(> .linked-message) > .message-click-boundary .message-contents-container.hasText > .message-contents {
+  box-shadow: none !important;
+}
+
+/* Fade selection accents smoothly without moving or resizing messages. */
+.message-container .message-contents,
+.message-container .message-attachments-container,
+.message-container .audio-player,
+.bubble-mode .message-container .message-main:has(> .linked-message):has(> .message-click-boundary .message-contents-container.hasText)::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  transition: outline-color 80ms ease-out, box-shadow 100ms ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .message-container .message-contents,
+  .message-container .message-attachments-container,
+  .message-container .audio-player,
+  .bubble-mode .message-container .message-main:has(> .linked-message):has(> .message-click-boundary .message-contents-container.hasText)::before {
+    transition: none !important;
+  }
+}
+
+/* Image outlines and selection halos follow the media's rounded corners. */
+.message-container .message-attachments-container:has(.enhanced-img),
+.message-container :is(.message-attachments-container, .message-attachments) .enhanced-img {
+  border-radius: var(--chat-view-bubble-radius, 12px) !important;
+}
+
+/* Keep network logos consistently pale in every chat-list state. */
+.sidebar-thread .ThreadListItem-module__body::before,
+.sidebar-thread .ThreadListItem-module__platformIcon {
+  opacity: 0.4 !important;
+  filter: saturate(0.45) !important;
+  transition: opacity 120ms ease-out, filter 120ms ease-out;
+}
+.sidebar-thread:is(:hover, :focus-within, .isSelected) .ThreadListItem-module__body::before,
+.sidebar-thread:is(:hover, :focus-within, .isSelected) .ThreadListItem-module__platformIcon,
+.sidebar-thread .ThreadListItem-module__wrapper.ThreadListItem-module__isSelected .ThreadListItem-module__body::before,
+.sidebar-thread .ThreadListItem-module__wrapper.ThreadListItem-module__isSelected .ThreadListItem-module__platformIcon {
+  opacity: 0.4 !important;
+  filter: saturate(0.45) !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sidebar-thread .ThreadListItem-module__body::before,
+  .sidebar-thread .ThreadListItem-module__platformIcon {
+    transition: none !important;
+  }
+}
+
+/* Quieter ribbon: reserve the background tile for the selected filter. */
+.account-switcher .accounts .sidebar-button:not(.selected) > button::before {
+  opacity: 0;
+}
+.account-switcher .accounts .sidebar-button:not(.selected),
+.account-switcher .accounts .sidebar-button:not(.selected) > button {
+  background: transparent !important;
+}
+.account-switcher .accounts .sidebar-button:not(.selected) > button::after,
+.account-switcher .accounts .sidebar-button:not(.selected) > button > :is(svg, .PlatformIcon-module__sfSymbolIcon, .PlatformIcon-module__materialIcon) {
+  opacity: 0.75;
+}
+/* Keep sender names, without repeating miniature portraits in previews. */
+.sidebar-thread .thread-participant-name .participant-img {
+  display: none !important;
+}
+/* Give chat names more prominence than preview text. */
+.sidebar-thread .ThreadListItem-module__preview {
+  font-size: calc(var(--semantic-typo-size-body-sm) - 1px) !important;
+}
+
+/* Rounded & bold: consistent Lucide geometry throughout the ribbon. */
+.account-switcher .accounts > .account-container:nth-child(1) .sidebar-button:not(:has(.brand-combined-icon)) { --clean-ribbon-mask: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-inbox%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22none%22%0A%20%20stroke%3D%22black%22%0A%20%20stroke-width%3D%222.6%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpolyline%20points%3D%2222%2012%2016%2012%2014%2015%2010%2015%208%2012%202%2012%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M5.45%205.11%202%2012v6a2%202%200%200%200%202%202h16a2%202%200%200%200%202-2v-6l-3.45-6.89A2%202%200%200%200%2016.76%204H7.24a2%202%200%200%200-1.79%201.11z%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts > .account-container:nth-child(2) .sidebar-button:not(:has(.brand-combined-icon)) { --clean-ribbon-mask: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-archive%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22none%22%0A%20%20stroke%3D%22black%22%0A%20%20stroke-width%3D%222.6%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Crect%20width%3D%2220%22%20height%3D%225%22%20x%3D%222%22%20y%3D%223%22%20rx%3D%221%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M4%208v11a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2V8%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M10%2012h4%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts > .account-container:nth-child(3) .sidebar-button:not(:has(.brand-combined-icon)) { --clean-ribbon-mask: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-sprout%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22none%22%0A%20%20stroke%3D%22black%22%0A%20%20stroke-width%3D%222.6%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M7%2020h10%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M10%2020c5.5-2.5.8-6.4%203-10%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M9.5%209.4c1.1.8%201.8%202.2%202.3%203.7-2%20.4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2%202.8-.5%204.4%200%205.5.8z%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M14.1%206a7%207%200%200%200-1.1%204c1.9-.1%203.3-.6%204.3-1.4%201-1%201.6-2.3%201.7-4.6-2.7.1-4%201-4.9%202z%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts > .account-container:nth-child(4) .sidebar-button:not(:has(.brand-combined-icon)) { --clean-ribbon-mask: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-clock-3%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22none%22%0A%20%20stroke%3D%22black%22%0A%20%20stroke-width%3D%222.6%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%2210%22%20%2F%3E%0A%20%20%3Cpolyline%20points%3D%2212%206%2012%2012%2016.5%2012%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts > .account-container:nth-child(5) .sidebar-button:not(:has(.brand-combined-icon)) { --clean-ribbon-mask: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-alarm-clock%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22none%22%0A%20%20stroke%3D%22black%22%0A%20%20stroke-width%3D%222.6%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Ccircle%20cx%3D%2212%22%20cy%3D%2213%22%20r%3D%228%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M12%209v4l2%202%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M5%203%202%206%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22m22%206-3-3%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M6.38%2018.7%204%2021%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M17.64%2018.67%2020%2021%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts > .account-container:nth-child(6) .sidebar-button:not(:has(.brand-combined-icon)) { --clean-ribbon-mask: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-mail%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22none%22%0A%20%20stroke%3D%22black%22%0A%20%20stroke-width%3D%222.6%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Crect%20width%3D%2220%22%20height%3D%2216%22%20x%3D%222%22%20y%3D%224%22%20rx%3D%222%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22m22%207-8.97%205.7a1.94%201.94%200%200%201-2.06%200L2%207%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts > .account-container:nth-child(7) .sidebar-button:not(:has(.brand-combined-icon)) { --clean-ribbon-mask: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-bookmark%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22none%22%0A%20%20stroke%3D%22black%22%0A%20%20stroke-width%3D%222.6%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22m19%2021-7-4-7%204V5a2%202%200%200%201%202-2h10a2%202%200%200%201%202%202v16z%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -5 24 28"]) { --clean-ribbon-mask: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-messages-square%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22none%22%0A%20%20stroke%3D%22black%22%0A%20%20stroke-width%3D%222.6%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M14%209a2%202%200%200%201-2%202H6l-4%204V4a2%202%200%200%201%202-2h8a2%202%200%200%201%202%202z%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M18%209h2a2%202%200%200%201%202%202v11l-4-4h-6a2%202%200%200%201-2-2v-1%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 28 27"]) { --clean-ribbon-mask: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-phone%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22none%22%0A%20%20stroke%3D%22black%22%0A%20%20stroke-width%3D%222.6%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M22%2016.92v3a2%202%200%200%201-2.18%202%2019.79%2019.79%200%200%201-8.63-3.07%2019.5%2019.5%200%200%201-6-6%2019.79%2019.79%200%200%201-3.07-8.67A2%202%200%200%201%204.11%202h3a2%202%200%200%201%202%201.72%2012.84%2012.84%200%200%200%20.7%202.81%202%202%200%200%201-.45%202.11L8.09%209.91a16%2016%200%200%200%206%206l1.27-1.27a2%202%200%200%201%202.11-.45%2012.84%2012.84%200%200%200%202.81.7A2%202%200%200%201%2022%2016.92z%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-3 -4 27 23"]) { --clean-ribbon-mask: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-send%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22none%22%0A%20%20stroke%3D%22black%22%0A%20%20stroke-width%3D%222.6%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M14.536%2021.686a.5.5%200%200%200%20.937-.024l6.5-19a.496.496%200%200%200-.635-.635l-19%206.5a.5.5%200%200%200-.024.937l7.93%203.18a2%202%200%200%201%201.112%201.11z%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22m21.854%202.147-10.94%2010.939%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-6 -6 28 28"]) { --clean-ribbon-mask: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-x%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22none%22%0A%20%20stroke%3D%22black%22%0A%20%20stroke-width%3D%222.6%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M18%206%206%2018%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22m6%206%2012%2012%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="0 0 28 28"]) { --clean-ribbon-mask: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-facebook%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22none%22%0A%20%20stroke%3D%22black%22%0A%20%20stroke-width%3D%222.6%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M18%202h-3a5%205%200%200%200-5%205v3H7v4h3v8h4v-8h3l1-4h-4V7a1%201%200%200%201%201-1h3z%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 28 26"]) { --clean-ribbon-mask: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-message-circle%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22none%22%0A%20%20stroke%3D%22black%22%0A%20%20stroke-width%3D%222.6%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M7.9%2020A9%209%200%201%200%204%2016.1L2%2022Z%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 26 26"]) { --clean-ribbon-mask: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-message-circle-dashed%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22none%22%0A%20%20stroke%3D%22black%22%0A%20%20stroke-width%3D%222.6%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M13.5%203.1c-.5%200-1-.1-1.5-.1s-1%20.1-1.5.1%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M19.3%206.8a10.45%2010.45%200%200%200-2.1-2.1%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M20.9%2013.5c.1-.5.1-1%20.1-1.5s-.1-1-.1-1.5%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M17.2%2019.3a10.45%2010.45%200%200%200%202.1-2.1%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M10.5%2020.9c.5.1%201%20.1%201.5.1s1-.1%201.5-.1%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M3.5%2017.5%202%2022l4.5-1.5%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M3.1%2010.5c0%20.5-.1%201-.1%201.5s.1%201%20.1%201.5%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M6.8%204.7a10.45%2010.45%200%200%200-2.1%202.1%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts > .account-container:nth-child(1) .sidebar-button:not(:has(.brand-combined-icon)) > button::after ,
+.account-switcher .accounts > .account-container:nth-child(2) .sidebar-button:not(:has(.brand-combined-icon)) > button::after ,
+.account-switcher .accounts > .account-container:nth-child(3) .sidebar-button:not(:has(.brand-combined-icon)) > button::after ,
+.account-switcher .accounts > .account-container:nth-child(4) .sidebar-button:not(:has(.brand-combined-icon)) > button::after ,
+.account-switcher .accounts > .account-container:nth-child(5) .sidebar-button:not(:has(.brand-combined-icon)) > button::after ,
+.account-switcher .accounts > .account-container:nth-child(6) .sidebar-button:not(:has(.brand-combined-icon)) > button::after ,
+.account-switcher .accounts > .account-container:nth-child(7) .sidebar-button:not(:has(.brand-combined-icon)) > button::after ,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -5 24 28"]) > button::after ,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 28 27"]) > button::after ,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-3 -4 27 23"]) > button::after ,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-6 -6 28 28"]) > button::after ,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="0 0 28 28"]) > button::after ,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 28 26"]) > button::after ,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 26 26"]) > button::after {
+  content: "";
+  position: absolute;
+  width: 22px !important;
+  height: 22px !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--clean-ribbon-color);
+  mask: var(--clean-ribbon-mask) center / contain no-repeat;
+  -webkit-mask: var(--clean-ribbon-mask) center / contain no-repeat;
+  pointer-events: none;
+}
+.account-switcher .accounts > .account-container:nth-child(1) .sidebar-button:not(:has(.brand-combined-icon)) > button > :is(svg, .PlatformIcon-module__sfSymbolIcon, .PlatformIcon-module__materialIcon, .LabelSpaceIcon-module__wrapper),
+.account-switcher .accounts > .account-container:nth-child(2) .sidebar-button:not(:has(.brand-combined-icon)) > button > :is(svg, .PlatformIcon-module__sfSymbolIcon, .PlatformIcon-module__materialIcon, .LabelSpaceIcon-module__wrapper),
+.account-switcher .accounts > .account-container:nth-child(3) .sidebar-button:not(:has(.brand-combined-icon)) > button > :is(svg, .PlatformIcon-module__sfSymbolIcon, .PlatformIcon-module__materialIcon, .LabelSpaceIcon-module__wrapper),
+.account-switcher .accounts > .account-container:nth-child(4) .sidebar-button:not(:has(.brand-combined-icon)) > button > :is(svg, .PlatformIcon-module__sfSymbolIcon, .PlatformIcon-module__materialIcon, .LabelSpaceIcon-module__wrapper),
+.account-switcher .accounts > .account-container:nth-child(5) .sidebar-button:not(:has(.brand-combined-icon)) > button > :is(svg, .PlatformIcon-module__sfSymbolIcon, .PlatformIcon-module__materialIcon, .LabelSpaceIcon-module__wrapper),
+.account-switcher .accounts > .account-container:nth-child(6) .sidebar-button:not(:has(.brand-combined-icon)) > button > :is(svg, .PlatformIcon-module__sfSymbolIcon, .PlatformIcon-module__materialIcon, .LabelSpaceIcon-module__wrapper),
+.account-switcher .accounts > .account-container:nth-child(7) .sidebar-button:not(:has(.brand-combined-icon)) > button > :is(svg, .PlatformIcon-module__sfSymbolIcon, .PlatformIcon-module__materialIcon, .LabelSpaceIcon-module__wrapper),
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -5 24 28"]) > button > :is(svg, .PlatformIcon-module__sfSymbolIcon, .PlatformIcon-module__materialIcon, .LabelSpaceIcon-module__wrapper),
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 28 27"]) > button > :is(svg, .PlatformIcon-module__sfSymbolIcon, .PlatformIcon-module__materialIcon, .LabelSpaceIcon-module__wrapper),
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-3 -4 27 23"]) > button > :is(svg, .PlatformIcon-module__sfSymbolIcon, .PlatformIcon-module__materialIcon, .LabelSpaceIcon-module__wrapper),
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-6 -6 28 28"]) > button > :is(svg, .PlatformIcon-module__sfSymbolIcon, .PlatformIcon-module__materialIcon, .LabelSpaceIcon-module__wrapper),
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="0 0 28 28"]) > button > :is(svg, .PlatformIcon-module__sfSymbolIcon, .PlatformIcon-module__materialIcon, .LabelSpaceIcon-module__wrapper),
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 28 26"]) > button > :is(svg, .PlatformIcon-module__sfSymbolIcon, .PlatformIcon-module__materialIcon, .LabelSpaceIcon-module__wrapper),
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 26 26"]) > button > :is(svg, .PlatformIcon-module__sfSymbolIcon, .PlatformIcon-module__materialIcon, .LabelSpaceIcon-module__wrapper) {
+  visibility: hidden !important;
+}
+
+/* Use the Twitter bird in the ribbon. */
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-6 -6 28 28"]) {
+ --clean-ribbon-mask: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-twitter%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22none%22%0A%20%20stroke%3D%22black%22%0A%20%20stroke-width%3D%222.6%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M22%204s-.7%202.1-2%203.4c1.6%2010-9.4%2017.3-18%2011.6%202.2.1%204.4-.6%206-2C3%2015.5.5%209.6%203%205c2.2%202.6%205.6%204.1%209%204-.9-4.2%204-6.6%207-3.8%201.1%200%203-1.2%203-1.2z%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
+ --clean-ribbon-color: light-dark(#1687b7, #6bc7ed);
+}
+
+/* Quoted replies use block layout: anchor hover actions beside the body. */
+.bubble-mode .message-container:not(.type-action) .message-main:has(> .linked-message) > .message-click-boundary .message-children {
+  position: relative;
+}
+.bubble-mode .message-container:not(.type-action) .message-main:has(> .linked-message) > .message-click-boundary .message-children > .brand-message-flyover {
+  position: absolute !important;
+  left: 100%;
+  right: auto;
+  top: 50%;
+  bottom: auto;
+  margin: 0 !important;
+  transform: translateY(-50%);
+  width: max-content;
+}
+.bubble-mode .message-container.is-sender:not(.type-action) .message-main:has(> .linked-message) > .message-click-boundary .message-children > .brand-message-flyover {
+  left: auto;
+  right: 100%;
+}
+
+/* Soft duotone ribbon: pale interiors with crisp colored outlines. */
+.account-switcher .accounts > .account-container:nth-child(1) .sidebar-button:not(:has(.brand-combined-icon)) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-inbox%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%233e62bd%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%233e62bd%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpolyline%20points%3D%2222%2012%2016%2012%2014%2015%2010%2015%208%2012%202%2012%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M5.45%205.11%202%2012v6a2%202%200%200%200%202%202h16a2%202%200%200%200%202-2v-6l-3.45-6.89A2%202%200%200%200%2016.76%204H7.24a2%202%200%200%200-1.79%201.11z%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts > .account-container:nth-child(2) .sidebar-button:not(:has(.brand-combined-icon)) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-archive%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%23657184%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%23657184%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Crect%20width%3D%2220%22%20height%3D%225%22%20x%3D%222%22%20y%3D%223%22%20rx%3D%221%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M4%208v11a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2V8%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M10%2012h4%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts > .account-container:nth-child(3) .sidebar-button:not(:has(.brand-combined-icon)) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-tree-deciduous%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%23138784%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%23138784%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M8%2019a4%204%200%200%201-2.24-7.32A3.5%203.5%200%200%201%209%206.03V6a3%203%200%201%201%206%200v.04a3.5%203.5%200%200%201%203.24%205.65A4%204%200%200%201%2016%2019Z%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M12%2019v3%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts > .account-container:nth-child(4) .sidebar-button:not(:has(.brand-combined-icon)) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-clock-3%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%23b07813%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%23b07813%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%2210%22%20%2F%3E%0A%20%20%3Cpolyline%20points%3D%2212%206%2012%2012%2016.5%2012%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts > .account-container:nth-child(5) .sidebar-button:not(:has(.brand-combined-icon)) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-alarm-clock%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%23b16932%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%23b16932%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Ccircle%20cx%3D%2212%22%20cy%3D%2213%22%20r%3D%228%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M12%209v4l2%202%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M5%203%202%206%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22m22%206-3-3%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M6.38%2018.7%204%2021%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M17.64%2018.67%2020%2021%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts > .account-container:nth-child(6) .sidebar-button:not(:has(.brand-combined-icon)) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-mail%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%238560af%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%238560af%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Crect%20width%3D%2220%22%20height%3D%2216%22%20x%3D%222%22%20y%3D%224%22%20rx%3D%222%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22m22%207-8.97%205.7a1.94%201.94%200%200%201-2.06%200L2%207%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts > .account-container:nth-child(7) .sidebar-button:not(:has(.brand-combined-icon)) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-bookmark%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%23657184%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%23657184%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22m19%2021-7-4-7%204V5a2%202%200%200%201%202-2h10a2%202%200%200%201%202%202v16z%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -5 24 28"]) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-messages-square%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%236656d9%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%236656d9%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M14%209a2%202%200%200%201-2%202H6l-4%204V4a2%202%200%200%201%202-2h8a2%202%200%200%201%202%202z%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M18%209h2a2%202%200%200%201%202%202v11l-4-4h-6a2%202%200%200%201-2-2v-1%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 28 27"]) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-phone%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%23198857%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%23198857%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M22%2016.92v3a2%202%200%200%201-2.18%202%2019.79%2019.79%200%200%201-8.63-3.07%2019.5%2019.5%200%200%201-6-6%2019.79%2019.79%200%200%201-3.07-8.67A2%202%200%200%201%204.11%202h3a2%202%200%200%201%202%201.72%2012.84%2012.84%200%200%200%20.7%202.81%202%202%200%200%201-.45%202.11L8.09%209.91a16%2016%200%200%200%206%206l1.27-1.27a2%202%200%200%201%202.11-.45%2012.84%2012.84%200%200%200%202.81.7A2%202%200%200%201%2022%2016.92z%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-3 -4 27 23"]) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-send%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%231687b7%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%231687b7%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M14.536%2021.686a.5.5%200%200%200%20.937-.024l6.5-19a.496.496%200%200%200-.635-.635l-19%206.5a.5.5%200%200%200-.024.937l7.93%203.18a2%202%200%200%201%201.112%201.11z%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22m21.854%202.147-10.94%2010.939%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-6 -6 28 28"]) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-twitter%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%231687b7%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%231687b7%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M22%204s-.7%202.1-2%203.4c1.6%2010-9.4%2017.3-18%2011.6%202.2.1%204.4-.6%206-2C3%2015.5.5%209.6%203%205c2.2%202.6%205.6%204.1%209%204-.9-4.2%204-6.6%207-3.8%201.1%200%203-1.2%203-1.2z%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="0 0 28 28"]) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-facebook%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%232464cf%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%232464cf%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M18%202h-3a5%205%200%200%200-5%205v3H7v4h3v8h4v-8h3l1-4h-4V7a1%201%200%200%201%201-1h3z%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 28 26"]) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-message-circle%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%235b8e21%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%235b8e21%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M7.9%2020A9%209%200%201%200%204%2016.1L2%2022Z%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 26 26"]) { --clean-ribbon-duotone: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20class%3D%22lucide%20lucide-message-circle-dashed%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%234e56cb%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%20%20%3Cns0%3Ag%20fill%3D%22%234e56cb%22%20fill-opacity%3D%22.22%22%20stroke%3D%22none%22%3E%3Cns0%3Apath%20d%3D%22M7.9%2020A9%209%200%201%200%204%2016.1L2%2022Z%22%20%2F%3E%3C%2Fns0%3Ag%3E%3Cns0%3Apath%20d%3D%22M13.5%203.1c-.5%200-1-.1-1.5-.1s-1%20.1-1.5.1%22%20%2F%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M19.3%206.8a10.45%2010.45%200%200%200-2.1-2.1%22%20%2F%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M20.9%2013.5c.1-.5.1-1%20.1-1.5s-.1-1-.1-1.5%22%20%2F%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M17.2%2019.3a10.45%2010.45%200%200%200%202.1-2.1%22%20%2F%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M10.5%2020.9c.5.1%201%20.1%201.5.1s1-.1%201.5-.1%22%20%2F%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M3.5%2017.5%202%2022l4.5-1.5%22%20%2F%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M3.1%2010.5c0%20.5-.1%201-.1%201.5s.1%201%20.1%201.5%22%20%2F%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M6.8%204.7a10.45%2010.45%200%200%200-2.1%202.1%22%20%2F%3E%0A%3C%2Fns0%3Asvg%3E"); }
+@media (prefers-color-scheme: dark) {
+.account-switcher .accounts > .account-container:nth-child(1) .sidebar-button:not(:has(.brand-combined-icon)) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-inbox%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%2394b3ff%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%2394b3ff%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpolyline%20points%3D%2222%2012%2016%2012%2014%2015%2010%2015%208%2012%202%2012%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M5.45%205.11%202%2012v6a2%202%200%200%200%202%202h16a2%202%200%200%200%202-2v-6l-3.45-6.89A2%202%200%200%200%2016.76%204H7.24a2%202%200%200%200-1.79%201.11z%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts > .account-container:nth-child(2) .sidebar-button:not(:has(.brand-combined-icon)) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-archive%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%23a3afc2%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%23a3afc2%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Crect%20width%3D%2220%22%20height%3D%225%22%20x%3D%222%22%20y%3D%223%22%20rx%3D%221%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M4%208v11a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2V8%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M10%2012h4%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts > .account-container:nth-child(3) .sidebar-button:not(:has(.brand-combined-icon)) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-tree-deciduous%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%2363c8bf%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%2363c8bf%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M8%2019a4%204%200%200%201-2.24-7.32A3.5%203.5%200%200%201%209%206.03V6a3%203%200%201%201%206%200v.04a3.5%203.5%200%200%201%203.24%205.65A4%204%200%200%201%2016%2019Z%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M12%2019v3%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts > .account-container:nth-child(4) .sidebar-button:not(:has(.brand-combined-icon)) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-clock-3%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%23edc166%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%23edc166%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%2210%22%20%2F%3E%0A%20%20%3Cpolyline%20points%3D%2212%206%2012%2012%2016.5%2012%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts > .account-container:nth-child(5) .sidebar-button:not(:has(.brand-combined-icon)) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-alarm-clock%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%23e5aa7c%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%23e5aa7c%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Ccircle%20cx%3D%2212%22%20cy%3D%2213%22%20r%3D%228%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M12%209v4l2%202%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M5%203%202%206%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22m22%206-3-3%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M6.38%2018.7%204%2021%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M17.64%2018.67%2020%2021%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts > .account-container:nth-child(6) .sidebar-button:not(:has(.brand-combined-icon)) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-mail%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%23c3a0e9%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%23c3a0e9%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Crect%20width%3D%2220%22%20height%3D%2216%22%20x%3D%222%22%20y%3D%224%22%20rx%3D%222%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22m22%207-8.97%205.7a1.94%201.94%200%200%201-2.06%200L2%207%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts > .account-container:nth-child(7) .sidebar-button:not(:has(.brand-combined-icon)) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-bookmark%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%23a3afc2%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%23a3afc2%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22m19%2021-7-4-7%204V5a2%202%200%200%201%202-2h10a2%202%200%200%201%202%202v16z%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -5 24 28"]) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-messages-square%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%23b0a3ff%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%23b0a3ff%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M14%209a2%202%200%200%201-2%202H6l-4%204V4a2%202%200%200%201%202-2h8a2%202%200%200%201%202%202z%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22M18%209h2a2%202%200%200%201%202%202v11l-4-4h-6a2%202%200%200%201-2-2v-1%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 28 27"]) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-phone%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%236bcea0%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%236bcea0%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M22%2016.92v3a2%202%200%200%201-2.18%202%2019.79%2019.79%200%200%201-8.63-3.07%2019.5%2019.5%200%200%201-6-6%2019.79%2019.79%200%200%201-3.07-8.67A2%202%200%200%201%204.11%202h3a2%202%200%200%201%202%201.72%2012.84%2012.84%200%200%200%20.7%202.81%202%202%200%200%201-.45%202.11L8.09%209.91a16%2016%200%200%200%206%206l1.27-1.27a2%202%200%200%201%202.11-.45%2012.84%2012.84%200%200%200%202.81.7A2%202%200%200%201%2022%2016.92z%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-3 -4 27 23"]) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-send%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%236bc7ed%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%236bc7ed%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M14.536%2021.686a.5.5%200%200%200%20.937-.024l6.5-19a.496.496%200%200%200-.635-.635l-19%206.5a.5.5%200%200%200-.024.937l7.93%203.18a2%202%200%200%201%201.112%201.11z%22%20%2F%3E%0A%20%20%3Cpath%20d%3D%22m21.854%202.147-10.94%2010.939%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-6 -6 28 28"]) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-twitter%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%236bc7ed%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%236bc7ed%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M22%204s-.7%202.1-2%203.4c1.6%2010-9.4%2017.3-18%2011.6%202.2.1%204.4-.6%206-2C3%2015.5.5%209.6%203%205c2.2%202.6%205.6%204.1%209%204-.9-4.2%204-6.6%207-3.8%201.1%200%203-1.2%203-1.2z%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="0 0 28 28"]) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-facebook%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%238ab4ff%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%238ab4ff%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M18%202h-3a5%205%200%200%200-5%205v3H7v4h3v8h4v-8h3l1-4h-4V7a1%201%200%200%201%201-1h3z%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 28 26"]) { --clean-ribbon-duotone: url("data:image/svg+xml,%3C%21--%20%40license%20lucide-static%20v0.468.0%20-%20ISC%20--%3E%0A%3Csvg%0A%20%20class%3D%22lucide%20lucide-message-circle%22%0A%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0A%20%20width%3D%2224%22%0A%20%20height%3D%2224%22%0A%20%20viewBox%3D%220%200%2024%2024%22%0A%20%20fill%3D%22%23a9d66a%22%20fill-opacity%3D%22.22%22%0A%20%20stroke%3D%22%23a9d66a%22%0A%20%20stroke-width%3D%221.8%22%0A%20%20stroke-linecap%3D%22round%22%0A%20%20stroke-linejoin%3D%22round%22%0A%3E%0A%20%20%3Cpath%20d%3D%22M7.9%2020A9%209%200%201%200%204%2016.1L2%2022Z%22%20%2F%3E%0A%3C%2Fsvg%3E%0A"); }
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 26 26"]) { --clean-ribbon-duotone: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20class%3D%22lucide%20lucide-message-circle-dashed%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23a0a7ff%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%20%20%3Cns0%3Ag%20fill%3D%22%23a0a7ff%22%20fill-opacity%3D%22.22%22%20stroke%3D%22none%22%3E%3Cns0%3Apath%20d%3D%22M7.9%2020A9%209%200%201%200%204%2016.1L2%2022Z%22%20%2F%3E%3C%2Fns0%3Ag%3E%3Cns0%3Apath%20d%3D%22M13.5%203.1c-.5%200-1-.1-1.5-.1s-1%20.1-1.5.1%22%20%2F%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M19.3%206.8a10.45%2010.45%200%200%200-2.1-2.1%22%20%2F%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M20.9%2013.5c.1-.5.1-1%20.1-1.5s-.1-1-.1-1.5%22%20%2F%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M17.2%2019.3a10.45%2010.45%200%200%200%202.1-2.1%22%20%2F%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M10.5%2020.9c.5.1%201%20.1%201.5.1s1-.1%201.5-.1%22%20%2F%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M3.5%2017.5%202%2022l4.5-1.5%22%20%2F%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M3.1%2010.5c0%20.5-.1%201-.1%201.5s.1%201%20.1%201.5%22%20%2F%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M6.8%204.7a10.45%2010.45%200%200%200-2.1%202.1%22%20%2F%3E%0A%3C%2Fns0%3Asvg%3E"); }
+}
+.account-switcher .accounts > .account-container:nth-child(1) .sidebar-button:not(:has(.brand-combined-icon)) > button::after,
+.account-switcher .accounts > .account-container:nth-child(2) .sidebar-button:not(:has(.brand-combined-icon)) > button::after,
+.account-switcher .accounts > .account-container:nth-child(3) .sidebar-button:not(:has(.brand-combined-icon)) > button::after,
+.account-switcher .accounts > .account-container:nth-child(4) .sidebar-button:not(:has(.brand-combined-icon)) > button::after,
+.account-switcher .accounts > .account-container:nth-child(5) .sidebar-button:not(:has(.brand-combined-icon)) > button::after,
+.account-switcher .accounts > .account-container:nth-child(6) .sidebar-button:not(:has(.brand-combined-icon)) > button::after,
+.account-switcher .accounts > .account-container:nth-child(7) .sidebar-button:not(:has(.brand-combined-icon)) > button::after,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -5 24 28"]) > button::after,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 28 27"]) > button::after,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-3 -4 27 23"]) > button::after,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-6 -6 28 28"]) > button::after,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="0 0 28 28"]) > button::after,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 28 26"]) > button::after,
+.account-switcher .accounts .sidebar-button:has(.brand-combined-icon > svg[viewBox="-4 -4 26 26"]) > button::after {
+  background-color: transparent !important;
+  background-image: var(--clean-ribbon-duotone) !important;
+  background-position: center !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+  width: 23px !important;
+  height: 23px !important;
+}
+
+/* Fully circular selection backgrounds in the account/filter ribbon. */
+.account-switcher .accounts .sidebar-button.selected,
+.account-switcher .accounts .sidebar-button.selected > button,
+.account-switcher .accounts .sidebar-button.selected > button::before {
+  border-radius: 50% !important;
+}
+
+/* Hide the redundant Beeper network shortcut and its ribbon slot. */
+.account-switcher .accounts > .account-container:has(.brand-combined-icon > svg[viewBox="-4 -5 24 28"]) {
+  display: none !important;
+}
+
+/* Match the empty-state conversation glyph to the duotone ribbon. */
+.right-wrapper > .right:not(.right-thread):not(.right-prefs):has(> .SelectionModeHeader-module__wrapper:only-child) { --clean-empty-chat-icon: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20class%3D%22lucide%20lucide-message-square%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%237a899e%22%20stroke%3D%22%237a899e%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.22%22%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M21%2015a2%202%200%200%201-2%202H7l-4%204V5a2%202%200%200%201%202-2h14a2%202%200%200%201%202%202z%22%20%2F%3E%0A%3C%2Fns0%3Asvg%3E"); }
+@media (prefers-color-scheme: dark) {
+.right-wrapper > .right:not(.right-thread):not(.right-prefs):has(> .SelectionModeHeader-module__wrapper:only-child) { --clean-empty-chat-icon: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20class%3D%22lucide%20lucide-message-square%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23aab7c8%22%20stroke%3D%22%23aab7c8%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.22%22%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M21%2015a2%202%200%200%201-2%202H7l-4%204V5a2%202%200%200%201%202-2h14a2%202%200%200%201%202%202z%22%20%2F%3E%0A%3C%2Fns0%3Asvg%3E"); }
+}
+.right-wrapper > .right:not(.right-thread):not(.right-prefs):has(> .SelectionModeHeader-module__wrapper:only-child)::before {
+  background: var(--clean-empty-chat-icon) center / contain no-repeat !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+  opacity: 0.85;
+}
+
+/* Matching duotone footer: stacked photos and an add-account square. */
+.account-switcher .left-pane-footer .left-pane-footer-buttons button[aria-label="Open media viewer"] { --clean-footer-icon: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20class%3D%22lucide%20lucide-images%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%237a899e%22%20stroke%3D%22%237a899e%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.22%22%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M18%2022H4a2%202%200%200%201-2-2V6%22%20%2F%3E%0A%20%20%3Cns0%3Apath%20d%3D%22m22%2013-1.296-1.296a2.41%202.41%200%200%200-3.408%200L11%2018%22%20%2F%3E%0A%20%20%3Cns0%3Acircle%20cx%3D%2212%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%20%20%3Cns0%3Arect%20width%3D%2216%22%20height%3D%2216%22%20x%3D%226%22%20y%3D%222%22%20rx%3D%222%22%20%2F%3E%0A%3C%2Fns0%3Asvg%3E"); }
+.account-switcher .left-pane-footer .left-pane-footer-buttons button:not([aria-label]) { --clean-footer-icon: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20class%3D%22lucide%20lucide-square-plus%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%238b80cd%22%20stroke%3D%22%238b80cd%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.22%22%3E%0A%20%20%3Cns0%3Arect%20width%3D%2218%22%20height%3D%2218%22%20x%3D%223%22%20y%3D%223%22%20rx%3D%222%22%20%2F%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M8%2012h8%22%20%2F%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M12%208v8%22%20%2F%3E%0A%3C%2Fns0%3Asvg%3E"); }
+@media (prefers-color-scheme: dark) {
+.account-switcher .left-pane-footer .left-pane-footer-buttons button[aria-label="Open media viewer"] { --clean-footer-icon: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20class%3D%22lucide%20lucide-images%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23aab7c8%22%20stroke%3D%22%23aab7c8%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.22%22%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M18%2022H4a2%202%200%200%201-2-2V6%22%20%2F%3E%0A%20%20%3Cns0%3Apath%20d%3D%22m22%2013-1.296-1.296a2.41%202.41%200%200%200-3.408%200L11%2018%22%20%2F%3E%0A%20%20%3Cns0%3Acircle%20cx%3D%2212%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%20%20%3Cns0%3Arect%20width%3D%2216%22%20height%3D%2216%22%20x%3D%226%22%20y%3D%222%22%20rx%3D%222%22%20%2F%3E%0A%3C%2Fns0%3Asvg%3E"); }
+.account-switcher .left-pane-footer .left-pane-footer-buttons button:not([aria-label]) { --clean-footer-icon: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20class%3D%22lucide%20lucide-square-plus%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23b4a9ef%22%20stroke%3D%22%23b4a9ef%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.22%22%3E%0A%20%20%3Cns0%3Arect%20width%3D%2218%22%20height%3D%2218%22%20x%3D%223%22%20y%3D%223%22%20rx%3D%222%22%20%2F%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M8%2012h8%22%20%2F%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M12%208v8%22%20%2F%3E%0A%3C%2Fns0%3Asvg%3E"); }
+}
+.account-switcher .left-pane-footer .left-pane-footer-buttons button[aria-label="Open media viewer"],
+.account-switcher .left-pane-footer .left-pane-footer-buttons button:not([aria-label]) { position: relative; }
+.account-switcher .left-pane-footer .left-pane-footer-buttons button[aria-label="Open media viewer"] > *,
+.account-switcher .left-pane-footer .left-pane-footer-buttons button:not([aria-label]) > * { visibility: hidden !important; }
+.account-switcher .left-pane-footer .left-pane-footer-buttons button[aria-label="Open media viewer"]::after,
+.account-switcher .left-pane-footer .left-pane-footer-buttons button:not([aria-label])::after {
+  content: "";
+  position: absolute;
+  width: 23px;
+  height: 23px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--clean-footer-icon) center / contain no-repeat;
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+/* Quiet icon-only media/type labels in chat previews. Preserve each native
+   type symbol and keep its label available to assistive technology. */
+.sidebar-thread .ThreadPreviewTag-module__tag {
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  margin-top: 0 !important;
+  margin-right: 4px !important;
+  vertical-align: -1px !important;
+  color: light-dark(#8b919a, #969faa) !important;
+  position: relative;
+}
+.sidebar-thread .ThreadPreviewTag-module__icon {
+  width: 13px !important;
+  height: 13px !important;
+  opacity: 0.85;
+}
+.sidebar-thread .ThreadPreviewTag-module__label {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+}
+
+
+/* Replace the identified native photo glyph with the preview's duotone art.
+   Match its rendered mask signature so other attachment types keep their icons. */
+.sidebar-thread .ThreadPreviewTag-module__icon[style*="EQVR4Ae2aa6gVVRiGNStNM"] { --clean-preview-photo: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20class%3D%22lucide%20lucide-image%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%237d848e%22%20stroke%3D%22%237d848e%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.22%22%3E%0A%20%20%3Cns0%3Arect%20width%3D%2218%22%20height%3D%2218%22%20x%3D%223%22%20y%3D%223%22%20rx%3D%222%22%20ry%3D%222%22%20%2F%3E%0A%20%20%3Cns0%3Acircle%20cx%3D%229%22%20cy%3D%229%22%20r%3D%222%22%20%2F%3E%0A%20%20%3Cns0%3Apath%20d%3D%22m21%2015-3.086-3.086a2%202%200%200%200-2.828%200L6%2021%22%20%2F%3E%0A%3C%2Fns0%3Asvg%3E"); }
+@media (prefers-color-scheme: dark) {
+.sidebar-thread .ThreadPreviewTag-module__icon[style*="EQVR4Ae2aa6gVVRiGNStNM"] { --clean-preview-photo: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20class%3D%22lucide%20lucide-image%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23a1aab5%22%20stroke%3D%22%23a1aab5%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.22%22%3E%0A%20%20%3Cns0%3Arect%20width%3D%2218%22%20height%3D%2218%22%20x%3D%223%22%20y%3D%223%22%20rx%3D%222%22%20ry%3D%222%22%20%2F%3E%0A%20%20%3Cns0%3Acircle%20cx%3D%229%22%20cy%3D%229%22%20r%3D%222%22%20%2F%3E%0A%20%20%3Cns0%3Apath%20d%3D%22m21%2015-3.086-3.086a2%202%200%200%200-2.828%200L6%2021%22%20%2F%3E%0A%3C%2Fns0%3Asvg%3E"); }
+}
+.sidebar-thread .ThreadPreviewTag-module__icon[style*="EQVR4Ae2aa6gVVRiGNStNM"] {
+  mask: none !important;
+  -webkit-mask: none !important;
+  background: var(--clean-preview-photo) center / contain no-repeat !important;
+  display: inline-block !important;
+  width: 13px !important;
+  height: 13px !important;
+  opacity: 1 !important;
+  transform: translateY(1px);
+}
+
+/* A fine white inner edge gives received bubbles definition over the blur. */
+.bubble-mode .message-container:not(.is-sender):not(.type-action) {
+  --clean-bubble-edge: inset 0 0 0 1px light-dark(#ffffff, rgba(255, 255, 255, 0.22)), 0 0 8px 2px light-dark(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1));
+}
+.bubble-mode .message-container:not(.is-sender):not(.type-action):not(.is-selected) .message-main:not(:has(> .linked-message)) .message-contents:not(:has(.audio-player)),
+.bubble-mode .message-container:not(.is-sender):not(.type-action):not(.is-selected) .audio-player,
+.bubble-mode .message-container:not(.is-sender):not(.type-action):not(.is-selected) .message-main:has(> .linked-message):has(> .message-click-boundary .message-contents-container.hasText)::before {
+  box-shadow: var(--clean-bubble-edge) !important;
+}
+
+/* Keep outgoing blue bubbles free of a surrounding glow. */
+.bubble-mode .message-container.is-sender .message-contents,
+.bubble-mode .message-container.is-sender .message-attachments-container,
+.bubble-mode .message-container.is-sender .audio-player,
+.bubble-mode .message-container.is-sender .message-main:has(> .linked-message):has(> .message-click-boundary .message-contents-container.hasText)::before {
+  box-shadow: none !important;
+}
+
+/* Slightly smaller timestamps within conversation messages. */
+.conversation .message .timestamp,
+.conversation .audio-player-message-ts {
+  font-size: 10px !important;
+}
+
+/* True-black dark mode, parallel to the white surfaces in light mode. */
+@media (prefers-color-scheme: dark) {
+  :root, body {
+    color-scheme: dark;
+    --clean-bg: #000000 !important;
+    --clean-bg-rgb: 0, 0, 0;
+    --clean-sidebar: #000000 !important;
+    --clean-surface: #222225;
+    --clean-hover: #1c1c1f;
+    --clean-border: #303034;
+    --clean-text: #ededf0;
+    --clean-text-rgb: 237, 237, 240;
+    --clean-muted: #b2b2ba;
+    --clean-subtle: #9b9ba5;
+    --clean-accent: #94b3ff;
+    --clean-accent-rgb: 148, 179, 255;
+    --clean-accent-hover: #426ccc;
+    --clean-accent-disabled: #475475;
+    --clean-sent: #3459ad;
+    --clean-inbox-header-tint: #000000 !important;
+    --clean-selected-bg: #242427 !important;
+    --appearance-color-bg-primary: #000000 !important;
+    --color-bg: #000000 !important;
+    --color-bg-rgb: 0, 0, 0 !important;
+    --left-pane-bg: #000000 !important;
+    --right-pane-bg: #000000 !important;
+    --color-background-app: #000000 !important;
+    --color-background-app-weak: #000000 !important;
+    --color-background-grouped: #000000 !important;
+    --color-background-grouped-weak: #000000 !important;
+    --color-background-elevated: #000000 !important;
+    --color-background-sidebar: #000000 !important;
+    --color-background-sidebar-opaque: #000000 !important;
+    --color-background-header-right: #000000 !important;
+    --color-background-header-right-opaque: #000000 !important;
+    --color-background-menu: #000000 !important;
+    --color-background-menu-opaque: #000000 !important;
+    --prefs-well: #000000 !important;
+  }
+  body, .home, .left, .threads, .account-switcher, .filters-pane-list,
+  .right-wrapper, .right-wrapper > .right, .conversation,
+  .ComposeMessage-module__wrapper {
+    background-color: #000000 !important;
+  }
+  /* Let only the selected row read as a raised surface. */
+  .sidebar-thread:not(.isSelected),
+  .sidebar-thread:not(.isSelected) .ThreadListItem-module__internal {
+    background-color: transparent !important;
+  }
+}
+
+/* Dark-mode incoming bubbles use a black edge and halo. */
+@media (prefers-color-scheme: dark) {
+  .bubble-mode .message-container:not(.is-sender):not(.type-action) {
+    --clean-bubble-edge: inset 0 0 0 1px #000000, 0 0 8px 2px rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* Quoted replies must use the live bubble palette in both appearance modes.
+   The older color-background-message tokens are only customized in light mode. */
+.bubble-mode .message-container:not(.type-action) .message-main:has(> .linked-message):has(> .message-click-boundary .message-contents-container.hasText) {
+  --clean-reply-bubble: var(--color-background-message-bubble-received, var(--clean-surface, #222225));
+}
+.bubble-mode .message-container.is-sender .message-main:has(> .linked-message):has(> .message-click-boundary .message-contents-container.hasText) {
+  --clean-reply-bubble: var(--bubble-out-bg, var(--color-background-message-bubble-sent, var(--clean-sent, #345fc1))) !important;
+}
+
+/* Paint outgoing quoted replies explicitly: native bubble colors can resolve
+   to transparent outside the inner message element, especially in dark mode. */
+.bubble-mode .message-container.is-sender .message-main:has(> .linked-message):has(> .message-click-boundary .message-contents-container.hasText)::before {
+  background: #345fc1 !important;
+}
+@media (prefers-color-scheme: dark) {
+  .bubble-mode .message-container.is-sender .message-main:has(> .linked-message):has(> .message-click-boundary .message-contents-container.hasText)::before {
+    background: #2860ff !important;
+  }
+}
+
+/* Centered, compact timeline notes for call and system events. */
+body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) { --clean-event-icon: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20class%3D%22lucide%20lucide-phone%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23797981%22%20stroke%3D%22%23797981%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.17%22%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M22%2016.92v3a2%202%200%200%201-2.18%202%2019.79%2019.79%200%200%201-8.63-3.07%2019.5%2019.5%200%200%201-6-6%2019.79%2019.79%200%200%201-3.07-8.67A2%202%200%200%201%204.11%202h3a2%202%200%200%201%202%201.72%2012.84%2012.84%200%200%200%20.7%202.81%202%202%200%200%201-.45%202.11L8.09%209.91a16%2016%200%200%200%206%206l1.27-1.27a2%202%200%200%201%202.11-.45%2012.84%2012.84%200%200%200%202.81.7A2%202%200%200%201%2022%2016.92z%22%20%2F%3E%0A%3C%2Fns0%3Asvg%3E"); padding-block: 8px; }
+@media (prefers-color-scheme: dark) {
+body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) { --clean-event-icon: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20class%3D%22lucide%20lucide-phone%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23a0a0a9%22%20stroke%3D%22%23a0a0a9%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.17%22%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M22%2016.92v3a2%202%200%200%201-2.18%202%2019.79%2019.79%200%200%201-8.63-3.07%2019.5%2019.5%200%200%201-6-6%2019.79%2019.79%200%200%201-3.07-8.67A2%202%200%200%201%204.11%202h3a2%202%200%200%201%202%201.72%2012.84%2012.84%200%200%200%20.7%202.81%202%202%200%200%201-.45%202.11L8.09%209.91a16%2016%200%200%200%206%206l1.27-1.27a2%202%200%200%201%202.11-.45%2012.84%2012.84%200%200%200%202.81.7A2%202%200%200%201%2022%2016.92z%22%20%2F%3E%0A%3C%2Fns0%3Asvg%3E"); }
+}
+body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) .message-main {
+ display: flex !important; justify-content: center !important;
+ width: 100% !important; max-width: 100% !important; margin-inline: 0 !important;
+}
+body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) .sender-img-container { display: none !important; }
+body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) :is(.message-click-boundary, .message-children, .message-children > main, .message-contents-container) {
+ width: auto !important; max-width: 100% !important; flex: 0 1 auto !important; margin-inline: 0 !important;
+}
+body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) .message-contents {
+ display: flex !important; flex-direction: row !important; align-items: center !important;
+ justify-content: center !important; gap: 7px; padding: 4px 8px !important;
+ background: transparent !important; border: 0 !important; box-shadow: none !important; opacity: 1 !important;
+ color: var(--clean-muted, var(--color-on-surface-variant)) !important;
+}
+body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) .message-text-container {
+ font-size: 12px !important; line-height: 18px !important; font-weight: 500 !important;
+ text-align: center !important; color: inherit !important; text-shadow: none !important;
+}
+body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) .timestamp { min-width: 0 !important; font-size: 10px !important; opacity: .65 !important; }
+body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) .brand-message-flyover { display: none !important; }
+.bubble-mode .message-container:has(.CallActionMessage-module__wrapper) .CallActionMessage-module__wrapper {
+ border: 0 !important; border-radius: 0 !important; background: transparent !important;
+ padding: 0 !important; gap: 7px !important;
+ color: var(--clean-muted, var(--color-on-surface-variant)) !important;
+}
+.bubble-mode .CallActionMessage-module__wrapper > :first-child { display: none !important; }
+.bubble-mode .CallActionMessage-module__wrapper::before {
+ content: ""; width: 14px; height: 14px; flex: 0 0 14px;
+ background: var(--clean-event-icon) center / contain no-repeat;
+}
+.bubble-mode .CallActionMessage-module__callType { font-size: 12px !important; line-height: 18px !important; }
+
+/* Notice messages (including Signal's Call ended) need the same neutral
+   presentation. Higher specificity keeps ordinary bubble widths from winning. */
+body.bubble-mode .conversation .message-container.message-container.message-container:has(.MessageContent-module__isNotice) .message-text {
+  font-size: 12px !important;
+  line-height: 18px !important;
+  text-align: center !important;
+}
+body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)):not(.is-selected) .message-contents {
+  outline-color: transparent !important;
+}

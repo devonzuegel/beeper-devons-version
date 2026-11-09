@@ -1,0 +1,6 @@
+.DS_Store
+*.bak
+*.backup
+*.tmp
+backups/
+private/
