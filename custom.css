@@ -1845,3 +1845,11 @@ body.bubble-mode .conversation .message-container.message-container.message-cont
 .sortable-threads > .sidebar-thread.isPinned:nth-last-child(1 of .sidebar-thread.isPinned) section::after {
   display: none !important;
 }
+
+/* A barely visible inner rim keeps dark avatars distinct from black surfaces. */
+@media (prefers-color-scheme: dark) {
+  .participant-img {
+    outline: 1px solid rgba(255, 255, 255, 0.12) !important;
+    outline-offset: -1px;
+  }
+}

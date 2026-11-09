@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add a faint, layout-neutral inner border to avatars in dark mode.
+
 - Hide the last pinned chat’s row divider, retaining the pinned-section divider.
 
 - Preserve the native gap below event cards so surrounding spacing stays balanced.
