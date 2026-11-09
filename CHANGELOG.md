@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add a tiny white inner rim to light-mode avatars while keeping their faint shadow.
+
 - Move the Custom CSS heading and controls to the top of Appearance settings.
 
 - Match filter, search, and compose toolbar buttons to the ribbon’s muted Lucide duotone icons.

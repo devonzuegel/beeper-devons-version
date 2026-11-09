@@ -1916,7 +1916,8 @@ body.bubble-mode .conversation .message-container.message-container.message-cont
   }
   .participant-img,
   .conversation .message-reactions .message-reaction-avatar {
-    outline: none !important;
+    outline: 1px solid #fff !important;
+    outline-offset: -1px;
     box-shadow: var(--clean-avatar-shadow) !important;
   }
 }
