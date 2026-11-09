@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Restyle Custom CSS controls with compact labels, duotone icons, a primary Reload button, and a quieter Reset action.
+
 - Fix the cramped active filter button with a soft tint, comfortable height, and a trailing dropdown cue.
 
 - Add a tiny white inner rim to light-mode avatars while keeping their faint shadow.

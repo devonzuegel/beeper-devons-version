@@ -1929,6 +1929,70 @@ body.bubble-mode .conversation .message-container.message-container.message-cont
   }
 }
 
+/* Compact, consistent controls for the Custom CSS workflow. */
+.prefs-group:has(> [data-pref-name="Custom CSS Options"]) {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+[data-pref-name="Custom CSS Options"] .prefs-action-group {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px !important;
+  padding: 0 !important;
+}
+[data-pref-name="Custom CSS Options"] .prefs-action-group > button {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 0;
+  min-height: 38px;
+  height: auto !important;
+  padding: 9px 10px !important;
+  margin: 0 !important;
+  border: 1px solid var(--clean-border) !important;
+  border-radius: 9px !important;
+  background: var(--clean-bg) !important;
+  color: var(--clean-text) !important;
+  box-shadow: none !important;
+  font-size: 0 !important;
+  transition: background 100ms ease, border-color 100ms ease;
+}
+[data-pref-name="Custom CSS Options"] .prefs-action-group > button::before {
+  content: "";
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  background: var(--clean-css-action-icon) center / contain no-repeat;
+}
+[data-pref-name="Custom CSS Options"] .prefs-action-group > button::after {
+  content: var(--clean-css-action-label);
+  font: 500 12px/1.3 Inter, system-ui, sans-serif;
+  white-space: nowrap;
+}
+[data-pref-name="Custom CSS Options"] .prefs-action-group > button:hover {
+  background: var(--clean-hover) !important;
+}
+[data-pref-name="Custom CSS Options"] .prefs-action-group > button:nth-child(3) {
+  background: #345fc1 !important;
+  border-color: #345fc1 !important;
+  color: #fff !important;
+}
+[data-pref-name="Custom CSS Options"] .prefs-action-group > button:nth-child(3):hover {
+  background: #2c52ab !important;
+}
+[data-pref-name="Custom CSS Options"] .prefs-action-group > button:nth-child(4) {
+  color: var(--clean-muted) !important;
+  border-color: transparent !important;
+}
+@media (max-width: 680px) {
+  [data-pref-name="Custom CSS Options"] .prefs-action-group {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 /* Keep Custom CSS and its heading first in Appearance settings. */
 .subview-prefs:has(> .prefs-group [data-pref-name="Custom CSS Options"]) {
   display: flex;
@@ -1990,4 +2054,16 @@ body.bubble-mode .conversation .message-container.message-container.message-cont
 .left-pane-header .tab-bar button[aria-label="Filter"] { --clean-toolbar-icon: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A//www.w3.org/2000/svg%22%20class%3D%22lucide%20lucide-filter%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23aab7c8%22%20stroke%3D%22%23aab7c8%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.22%22%3E%0A%20%20%3Cns0%3Apolygon%20points%3D%2222%203%202%203%2010%2012.46%2010%2019%2014%2021%2014%2012.46%2022%203%22%20/%3E%0A%3C/ns0%3Asvg%3E"); }
 .left-pane-header .tab-bar button[aria-label="Search Chats"] { --clean-toolbar-icon: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A//www.w3.org/2000/svg%22%20class%3D%22lucide%20lucide-search%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%2394b3e9%22%20stroke%3D%22%2394b3e9%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.22%22%3E%0A%20%20%3Cns0%3Acircle%20cx%3D%2211%22%20cy%3D%2211%22%20r%3D%228%22%20/%3E%0A%20%20%3Cns0%3Apath%20d%3D%22m21%2021-4.3-4.3%22%20/%3E%0A%3C/ns0%3Asvg%3E"); }
 .left-pane-header .tab-bar button[aria-label="New Chat"] { --clean-toolbar-icon: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A//www.w3.org/2000/svg%22%20class%3D%22lucide%20lucide-square-pen%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23b4a9ef%22%20stroke%3D%22%23b4a9ef%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.22%22%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M12%203H5a2%202%200%200%200-2%202v14a2%202%200%200%200%202%202h14a2%202%200%200%200%202-2v-7%22%20/%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M18.375%202.625a1%201%200%200%201%203%203l-9.013%209.014a2%202%200%200%201-.853.505l-2.873.84a.5.5%200%200%201-.62-.62l.84-2.873a2%202%200%200%201%20.506-.852z%22%20/%3E%0A%3C/ns0%3Asvg%3E"); }
+}
+
+/* Lucide duotone icons for the Custom CSS controls. */
+[data-pref-name="Custom CSS Options"] .prefs-action-group > button:nth-child(1) { --clean-css-action-label: "Edit CSS"; --clean-css-action-icon: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A//www.w3.org/2000/svg%22%20class%3D%22lucide%20lucide-file-pen-line%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%238491a3%22%20stroke%3D%22%238491a3%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.16%22%3E%0A%20%20%3Cns0%3Apath%20d%3D%22m18%205-2.414-2.414A2%202%200%200%200%2014.172%202H6a2%202%200%200%200-2%202v16a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2%22%20/%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M21.378%2012.626a1%201%200%200%200-3.004-3.004l-4.01%204.012a2%202%200%200%200-.506.854l-.837%202.87a.5.5%200%200%200%20.62.62l2.87-.837a2%202%200%200%200%20.854-.506z%22%20/%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M8%2018h1%22%20/%3E%0A%3C/ns0%3Asvg%3E"); }
+[data-pref-name="Custom CSS Options"] .prefs-action-group > button:nth-child(2) { --clean-css-action-label: "Show file"; --clean-css-action-icon: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A//www.w3.org/2000/svg%22%20class%3D%22lucide%20lucide-folder-open%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%238491a3%22%20stroke%3D%22%238491a3%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.16%22%3E%0A%20%20%3Cns0%3Apath%20d%3D%22m6%2014%201.5-2.9A2%202%200%200%201%209.24%2010H20a2%202%200%200%201%201.94%202.5l-1.54%206a2%202%200%200%201-1.95%201.5H4a2%202%200%200%201-2-2V5a2%202%200%200%201%202-2h3.9a2%202%200%200%201%201.69.9l.81%201.2a2%202%200%200%200%201.67.9H18a2%202%200%200%201%202%202v2%22%20/%3E%0A%3C/ns0%3Asvg%3E"); }
+[data-pref-name="Custom CSS Options"] .prefs-action-group > button:nth-child(3) { --clean-css-action-label: "Reload"; --clean-css-action-icon: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A//www.w3.org/2000/svg%22%20class%3D%22lucide%20lucide-refresh-cw%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23fff%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.16%22%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M3%2012a9%209%200%200%201%209-9%209.75%209.75%200%200%201%206.74%202.74L21%208%22%20/%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M21%203v5h-5%22%20/%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M21%2012a9%209%200%200%201-9%209%209.75%209.75%200%200%201-6.74-2.74L3%2016%22%20/%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M8%2016H3v5%22%20/%3E%0A%3C/ns0%3Asvg%3E"); }
+[data-pref-name="Custom CSS Options"] .prefs-action-group > button:nth-child(4) { --clean-css-action-label: "Reset"; --clean-css-action-icon: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A//www.w3.org/2000/svg%22%20class%3D%22lucide%20lucide-rotate-ccw%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%238491a3%22%20stroke%3D%22%238491a3%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.16%22%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M3%2012a9%209%200%201%200%209-9%209.75%209.75%200%200%200-6.74%202.74L3%208%22%20/%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M3%203v5h5%22%20/%3E%0A%3C/ns0%3Asvg%3E"); }
+@media (prefers-color-scheme: dark) {
+[data-pref-name="Custom CSS Options"] .prefs-action-group > button:nth-child(1) { --clean-css-action-label: "Edit CSS"; --clean-css-action-icon: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A//www.w3.org/2000/svg%22%20class%3D%22lucide%20lucide-file-pen-line%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23aab7c8%22%20stroke%3D%22%23aab7c8%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.16%22%3E%0A%20%20%3Cns0%3Apath%20d%3D%22m18%205-2.414-2.414A2%202%200%200%200%2014.172%202H6a2%202%200%200%200-2%202v16a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2%22%20/%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M21.378%2012.626a1%201%200%200%200-3.004-3.004l-4.01%204.012a2%202%200%200%200-.506.854l-.837%202.87a.5.5%200%200%200%20.62.62l2.87-.837a2%202%200%200%200%20.854-.506z%22%20/%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M8%2018h1%22%20/%3E%0A%3C/ns0%3Asvg%3E"); }
+[data-pref-name="Custom CSS Options"] .prefs-action-group > button:nth-child(2) { --clean-css-action-label: "Show file"; --clean-css-action-icon: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A//www.w3.org/2000/svg%22%20class%3D%22lucide%20lucide-folder-open%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23aab7c8%22%20stroke%3D%22%23aab7c8%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.16%22%3E%0A%20%20%3Cns0%3Apath%20d%3D%22m6%2014%201.5-2.9A2%202%200%200%201%209.24%2010H20a2%202%200%200%201%201.94%202.5l-1.54%206a2%202%200%200%201-1.95%201.5H4a2%202%200%200%201-2-2V5a2%202%200%200%201%202-2h3.9a2%202%200%200%201%201.69.9l.81%201.2a2%202%200%200%200%201.67.9H18a2%202%200%200%201%202%202v2%22%20/%3E%0A%3C/ns0%3Asvg%3E"); }
+[data-pref-name="Custom CSS Options"] .prefs-action-group > button:nth-child(3) { --clean-css-action-label: "Reload"; --clean-css-action-icon: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A//www.w3.org/2000/svg%22%20class%3D%22lucide%20lucide-refresh-cw%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23fff%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.16%22%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M3%2012a9%209%200%200%201%209-9%209.75%209.75%200%200%201%206.74%202.74L21%208%22%20/%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M21%203v5h-5%22%20/%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M21%2012a9%209%200%200%201-9%209%209.75%209.75%200%200%201-6.74-2.74L3%2016%22%20/%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M8%2016H3v5%22%20/%3E%0A%3C/ns0%3Asvg%3E"); }
+[data-pref-name="Custom CSS Options"] .prefs-action-group > button:nth-child(4) { --clean-css-action-label: "Reset"; --clean-css-action-icon: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A//www.w3.org/2000/svg%22%20class%3D%22lucide%20lucide-rotate-ccw%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23aab7c8%22%20stroke%3D%22%23aab7c8%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.16%22%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M3%2012a9%209%200%201%200%209-9%209.75%209.75%200%200%200-6.74%202.74L3%208%22%20/%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M3%203v5h5%22%20/%3E%0A%3C/ns0%3Asvg%3E"); }
 }
