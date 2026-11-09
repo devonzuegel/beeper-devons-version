@@ -1909,9 +1909,15 @@ body.bubble-mode .conversation .message-container.message-container.message-cont
   }
 }
 
-/* A barely visible inner rim keeps dark avatars distinct from black surfaces. */
+/* A layout-neutral rim separates pale avatars from the surrounding surface. */
+.participant-img,
+.conversation .message-reactions .message-reaction-avatar {
+  outline: 1px solid #dedee3 !important;
+  outline-offset: -1px;
+}
 @media (prefers-color-scheme: dark) {
-  .participant-img {
+  .participant-img,
+  .conversation .message-reactions .message-reaction-avatar {
     outline: 1px solid rgba(255, 255, 255, 0.12) !important;
     outline-offset: -1px;
   }
