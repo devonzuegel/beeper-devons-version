@@ -1839,3 +1839,9 @@ body.bubble-mode .conversation .message-container.message-container.message-cont
   flex: 0 1 auto !important;
   justify-content: center !important;
 }
+
+/* The pinned section already has a divider; omit the last pinned row's line. */
+.sortable-threads .sortable-pinned-thread-item:nth-last-child(1 of .sortable-pinned-thread-item) section::after,
+.sortable-threads > .sidebar-thread.isPinned:nth-last-child(1 of .sidebar-thread.isPinned) section::after {
+  display: none !important;
+}

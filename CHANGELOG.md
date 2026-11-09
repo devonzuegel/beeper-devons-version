@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Hide the last pinned chat’s row divider, retaining the pinned-section divider.
+
 - Preserve the native gap below event cards so surrounding spacing stays balanced.
 
 - Expand event cards to the conversation width and center the icon, label, and inline time.
