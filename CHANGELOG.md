@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Style clickable call entries with the same full-width, centered event card as call-ended notices.
+
 - Align event cards with the outgoing bubble edge by laying their footer below the card instead of beside it.
 
 - Improve avatar typing badges with slightly larger, higher-contrast dots and a soft blue tint.

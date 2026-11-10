@@ -1846,6 +1846,36 @@ body.bubble-mode .conversation .message-container.message-container.message-cont
   justify-content: center !important;
 }
 
+/* Clickable call entries have no message-contents bubble: frame the button itself. */
+body.bubble-mode .conversation .message-container.message-container.message-container:has(.CallActionMessage-module__wrapper) .CallActionMessage-module__wrapper {
+  display: flex !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 9px !important;
+  padding: 11px 16px !important;
+  border: 1px solid var(--clean-border, var(--color-border-neutrals)) !important;
+  border-radius: 10px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--clean-muted, var(--color-on-surface-variant)) !important;
+}
+body.bubble-mode .conversation .message-container:has(.CallActionMessage-module__wrapper) .CallActionMessage-module__wrapper::before {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 19px;
+}
+body.bubble-mode .conversation .CallActionMessage-module__callType {
+  font-size: 12px !important;
+  line-height: 18px !important;
+  font-weight: 500 !important;
+}
+body.bubble-mode .conversation button.CallActionMessage-module__wrapper:hover {
+  background: var(--clean-hover) !important;
+}
+
 /* The pinned section already has a divider; omit the last pinned row's line. */
 .sortable-threads .sortable-pinned-thread-item:nth-last-child(1 of .sortable-pinned-thread-item) section::after,
 .sortable-threads > .sidebar-thread.isPinned:nth-last-child(1 of .sidebar-thread.isPinned) section::after {
