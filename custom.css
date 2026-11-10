@@ -1945,6 +1945,27 @@ body.bubble-mode .conversation button.CallActionMessage-module__wrapper:hover {
   }
 }
 
+/* Animate newly mounted emoji and reactor avatars without changing layout. */
+@media (prefers-reduced-motion: no-preference) {
+  .conversation .message-reactions .message-reaction {
+    transform-origin: center;
+    animation: clean-reaction-pop 200ms cubic-bezier(0.2, 0.8, 0.3, 1) both;
+  }
+  .conversation .message-reactions .message-reaction-avatar {
+    transform-origin: center;
+    animation: clean-reactor-pop 180ms ease-out both;
+  }
+}
+@keyframes clean-reaction-pop {
+  0% { opacity: 0; transform: translateY(2px) scale(0.65); }
+  65% { opacity: 1; transform: translateY(0) scale(1.12); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes clean-reactor-pop {
+  0% { opacity: 0; transform: scale(0.7); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
 /* A soft, layout-neutral shadow lifts pale avatars off light surfaces. */
 @media (prefers-color-scheme: light) {
   :root {

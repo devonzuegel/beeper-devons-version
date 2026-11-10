@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add a quick pop-in for newly appearing reaction emoji and reactor avatars, respecting reduced motion.
+
 - Add a small top gap above the Custom CSS section title.
 
 - Align settings section titles with the left edge of their controls and groups.
