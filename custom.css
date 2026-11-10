@@ -1950,20 +1950,10 @@ body.bubble-mode .conversation button.CallActionMessage-module__wrapper:hover {
   .conversation .message-reactions .message-reaction {
     transform-origin: center;
     animation: clean-reaction-pop 200ms cubic-bezier(0.2, 0.8, 0.3, 1) both;
-    transition: transform 80ms ease-out, opacity 80ms ease-out;
   }
   .conversation .message-reactions .message-reaction-avatar {
     transform-origin: center;
     animation: clean-reactor-pop 180ms ease-out both;
-    transition: transform 80ms ease-out, opacity 80ms ease-out;
-  }
-  /* Beeper unmounts on click; show removal feedback during the preceding press.
-     This covers pointer/Space presses on your reactions, not remote removals. */
-  .conversation .message-reactions > .MessageReactions-module__isOwnReaction:active .message-reaction,
-  .conversation .message-reactions > .MessageReactions-module__isOwnReaction:active .message-reaction-avatar {
-    animation: none !important;
-    transform: scale(0.65);
-    opacity: 0.25;
   }
 }
 @keyframes clean-reaction-pop {
