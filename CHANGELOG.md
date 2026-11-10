@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add a small top gap above the Custom CSS section title.
+
 - Align settings section titles with the left edge of their controls and groups.
 
 - Use pointer cursors for Custom CSS actions and bring Reset closer to Reload.

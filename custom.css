@@ -2073,6 +2073,7 @@ body.bubble-mode .conversation button.CallActionMessage-module__wrapper:hover {
 }
 .subview-prefs > h4:has(+ .prefs-group [data-pref-name="Custom CSS Options"]) {
   order: -2;
+  margin-top: 8px;
 }
 .subview-prefs > .prefs-group:has([data-pref-name="Custom CSS Options"]) {
   order: -1;
