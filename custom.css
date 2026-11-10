@@ -1736,7 +1736,10 @@ body.bubble-mode .conversation .message-container.message-container.message-cont
 body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) { --clean-event-icon: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20class%3D%22lucide%20lucide-phone%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23a0a0a9%22%20stroke%3D%22%23a0a0a9%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.17%22%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M22%2016.92v3a2%202%200%200%201-2.18%202%2019.79%2019.79%200%200%201-8.63-3.07%2019.5%2019.5%200%200%201-6-6%2019.79%2019.79%200%200%201-3.07-8.67A2%202%200%200%201%204.11%202h3a2%202%200%200%201%202%201.72%2012.84%2012.84%200%200%200%20.7%202.81%202%202%200%200%201-.45%202.11L8.09%209.91a16%2016%200%200%200%206%206l1.27-1.27a2%202%200%200%201%202.11-.45%2012.84%2012.84%200%200%200%202.81.7A2%202%200%200%201%2022%2016.92z%22%20%2F%3E%0A%3C%2Fns0%3Asvg%3E"); }
 }
 body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) .message-main {
- display: flex !important; justify-content: center !important;
+ display: grid !important;
+ grid-template-columns: minmax(0, 1fr) !important;
+ grid-template-areas: "linked-message" "message-content" "message-buttons" "message-footer" !important;
+ justify-content: center !important;
  width: 100% !important; max-width: 100% !important; margin-inline: 0 !important;
 }
 body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) .sender-img-container { display: none !important; }
@@ -1823,6 +1826,9 @@ body.bubble-mode .conversation .message-container.message-container.message-cont
 }
 
 /* Full-width event cards, with the icon, label, and time centered together. */
+body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) .message-footer {
+  margin-inline: 0 !important;
+}
 body.bubble-mode .conversation .message-container.message-container.message-container:is(.type-action, :has(.CallActionMessage-module__wrapper), :has(.MessageContent-module__isNotice)) :is(.message-click-boundary, .message-children, .message-children > main, .message-contents-container) {
   width: 100% !important;
   max-width: 100% !important;

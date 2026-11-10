@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Align event cards with the outgoing bubble edge by laying their footer below the card instead of beside it.
+
 - Improve avatar typing badges with slightly larger, higher-contrast dots and a soft blue tint.
 
 - Restyle Custom CSS controls with compact labels, duotone icons, a primary Reload button, and a quieter Reset action.
