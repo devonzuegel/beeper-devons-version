@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Align settings section titles with the left edge of their controls and groups.
+
 - Use pointer cursors for Custom CSS actions and bring Reset closer to Reload.
 
 - Style clickable call entries with the same full-width, centered event card as call-ended notices.
