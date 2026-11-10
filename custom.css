@@ -1929,6 +1929,34 @@ body.bubble-mode .conversation .message-container.message-container.message-cont
   }
 }
 
+/* Make avatar typing badges easier to spot without changing chat-row sizing. */
+.sidebar-thread :is(.ThreadListItem-module__activityIndicator, .PinnedThreadListItem-module__activityIndicator):has(.TypingIndicator-module__wrapper) {
+  background: #edf2ff !important;
+  color: #345fc1 !important;
+  box-shadow: 0 0 0 1px var(--clean-bg), 0 1px 3px rgba(0, 0, 0, 0.16);
+}
+.sidebar-thread .TypingIndicator-module__dot {
+  width: 2.5px !important;
+  height: 2.5px !important;
+  animation-name: clean-typing-pulse !important;
+}
+@keyframes clean-typing-pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+@media (prefers-color-scheme: dark) {
+  .sidebar-thread :is(.ThreadListItem-module__activityIndicator, .PinnedThreadListItem-module__activityIndicator):has(.TypingIndicator-module__wrapper) {
+    background: #17243d !important;
+    color: #a8bfff !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sidebar-thread .TypingIndicator-module__dot {
+    animation: none !important;
+    opacity: 0.85;
+  }
+}
+
 /* Compact, consistent controls for the Custom CSS workflow. */
 .prefs-group:has(> [data-pref-name="Custom CSS Options"]) {
   border: 0 !important;

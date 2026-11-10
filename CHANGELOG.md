@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Improve avatar typing badges with slightly larger, higher-contrast dots and a soft blue tint.
+
 - Restyle Custom CSS controls with compact labels, duotone icons, a primary Reload button, and a quieter Reset action.
 
 - Fix the cramped active filter button with a soft tint, comfortable height, and a trailing dropdown cue.
