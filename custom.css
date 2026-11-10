@@ -2023,6 +2023,7 @@ body.bubble-mode .conversation button.CallActionMessage-module__wrapper:hover {
   box-shadow: none !important;
   font-size: 0 !important;
   transition: background 100ms ease, border-color 100ms ease;
+  cursor: pointer !important;
 }
 [data-pref-name="Custom CSS Options"] .prefs-action-group > button::before {
   content: "";
@@ -2050,6 +2051,8 @@ body.bubble-mode .conversation button.CallActionMessage-module__wrapper:hover {
 [data-pref-name="Custom CSS Options"] .prefs-action-group > button:nth-child(4) {
   color: var(--clean-muted) !important;
   border-color: transparent !important;
+  justify-self: start;
+  width: auto !important;
 }
 @media (max-width: 680px) {
   [data-pref-name="Custom CSS Options"] .prefs-action-group {

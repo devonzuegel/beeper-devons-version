@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Use pointer cursors for Custom CSS actions and bring Reset closer to Reload.
+
 - Style clickable call entries with the same full-width, centered event card as call-ended notices.
 
 - Align event cards with the outgoing bubble edge by laying their footer below the card instead of beside it.
