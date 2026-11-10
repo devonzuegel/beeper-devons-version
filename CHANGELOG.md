@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add shrink-and-fade press feedback when removing your own reactions. Remote removals remain immediate because Beeper unmounts them without an exit hook.
+
 - Reduce reaction emoji to 16px, slightly smaller than the neighboring 18px avatars.
 
 - Add a quick pop-in for newly appearing reaction emoji and reactor avatars, respecting reduced motion.
