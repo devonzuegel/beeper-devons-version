@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Lighten the message composer placeholder without changing typed text.
+
 - Remove unreliable removal press feedback: ordinary clicks unmount reactions before the effect can meaningfully play. Keep addition animations.
 
 - Add shrink-and-fade press feedback when removing your own reactions. Remote removals remain immediate because Beeper unmounts them without an exit hook.

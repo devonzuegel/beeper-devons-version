@@ -2014,6 +2014,16 @@ body.bubble-mode .conversation button.CallActionMessage-module__wrapper:hover {
   }
 }
 
+/* Keep composer placeholder text quieter than a typed draft. */
+.ComposeMessage-module__textArea p.is-editor-empty:only-child::before {
+  color: #9999a2 !important;
+}
+@media (prefers-color-scheme: dark) {
+  .ComposeMessage-module__textArea p.is-editor-empty:only-child::before {
+    color: #a0a0aa !important;
+  }
+}
+
 /* Compact, consistent controls for the Custom CSS workflow. */
 .prefs-group:has(> [data-pref-name="Custom CSS Options"]) {
   border: 0 !important;
