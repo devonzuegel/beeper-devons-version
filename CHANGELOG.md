@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Reduce reaction emoji to 16px, slightly smaller than the neighboring 18px avatars.
+
 - Add a quick pop-in for newly appearing reaction emoji and reactor avatars, respecting reduced motion.
 
 - Add a small top gap above the Custom CSS section title.

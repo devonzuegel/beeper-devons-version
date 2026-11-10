@@ -1909,12 +1909,12 @@ body.bubble-mode .conversation button.CallActionMessage-module__wrapper:hover {
   display: none !important;
 }
 .conversation .message-reactions .message-reaction {
-  font-size: 20px !important;
+  font-size: 16px !important;
   line-height: 1.2 !important;
 }
 .conversation .message-reactions .message-reaction img {
-  width: 20px !important;
-  height: 20px !important;
+  width: 16px !important;
+  height: 16px !important;
   object-fit: contain;
 }
 .conversation .message-reactions .message-reaction-avatars {
