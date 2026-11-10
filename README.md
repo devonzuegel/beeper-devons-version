@@ -30,6 +30,7 @@ The installer backs up the existing stylesheet before copying this one to `~/Lib
 - Rounded selected chats, pinned-group separation, and restrained timestamps.
 - Quoted messages inside a shared reply bubble; wider message text and side-positioned reply / reaction controls.
 - Selection outlines, compact hover actions, subtle received-bubble edges, and centered system notices.
+- Composer placeholders with a bold chat name and lighter surrounding text.
 
 The current file preserves the accumulated theme exactly as used on November 9, 2026. Some rules intentionally override earlier ones, so **order matters**. Refactoring can happen in separate, reviewable commits without losing this baseline.
 
@@ -68,4 +69,10 @@ This theme changes presentation only. It does not read, send, or export messages
 
 ## Credits and license
 
-Original theme code is available under the [MIT license](LICENSE). Lucide artwork is covered by its ISC license; see [third-party notices](THIRD_PARTY_NOTICES.md). Network names and logos belong to their respective owners. This project is unofficial and is not affiliated with Beeper.
+Original theme code is available under the [MIT license](LICENSE). Lucide artwork is covered by its ISC license, and the embedded Inter-derived placeholder font by the SIL Open Font License; see [third-party notices](THIRD_PARTY_NOTICES.md). Network names and logos belong to their respective owners. This project is unofficial and is not affiliated with Beeper.
+
+### Maintaining the placeholder font
+
+Beeper exposes the placeholder as one string, so CSS cannot wrap only the name in a bold span. A small embedded font uses contextual substitutions to render characters after “Message ” in bold, stopping before the network suffix. This applies only to the placeholder; drafts, accessibility text, and other app text retain their original behavior. No runtime script or external font request is needed. Unsupported characters use the ordinary font fallback.
+
+To rebuild it, install `fonttools[woff]` and `uharfbuzz` in a development Python environment, then run `python scripts/build-placeholder-font.py /path/to/Inter-Medium.woff2 /path/to/Inter-Bold.woff2` with matching static Inter fonts. The script checks name emphasis on fictional individual, group, and accented names and replaces the embedded font block in `custom.css`.

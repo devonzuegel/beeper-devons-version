@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Bold the chat name inside the composer placeholder with an embedded contextual font; keep the prefix, network name, and actual drafts unchanged.
+
 - Lighten the message composer placeholder without changing typed text.
 
 - Remove unreliable removal press feedback: ordinary clicks unmount reactions before the effect can meaningfully play. Keep addition animations.

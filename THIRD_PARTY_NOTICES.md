@@ -1,5 +1,9 @@
 # Third-party notices
 
+## Inter-derived placeholder font
+
+The embedded **Beeper Placeholder** font combines Inter Medium and Bold outlines with contextual substitutions that emphasize the name in “Message … on …”. Derived from Inter, copyright (c) 2016 The Inter Project Authors. The modified font is distributed under the SIL Open Font License 1.1, included in [INTER-LICENSE.txt](INTER-LICENSE.txt) and alongside the embedded font in `custom.css`. Source: https://github.com/rsms/inter
+
 ## Lucide icons
 
 Ribbon, media, and empty-state artwork uses Lucide 0.468.0, derived from Feather Icons. Source: https://lucide.dev/ and https://github.com/lucide-icons/lucide
