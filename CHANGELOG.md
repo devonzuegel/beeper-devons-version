@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Replace the ribbon’s generic WhatsApp handset with a recognizable duotone WhatsApp bubble badge.
+
 - Bold the chat name inside the composer placeholder with an embedded contextual font; keep the prefix, network name, and actual drafts unchanged.
 
 - Lighten the message composer placeholder without changing typed text.

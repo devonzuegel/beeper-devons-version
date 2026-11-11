@@ -32,3 +32,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ## Network marks and Beeper
 
 Some inline network symbols retain artwork supplied by Beeper. Network names and logos remain the property of their respective owners and are not covered by this project's MIT grant. Use does not imply endorsement.
+
+## WhatsApp ribbon mark
+
+The WhatsApp badge uses the WhatsApp mark from Simple Icons 13.21.0, with a custom pale interior. Simple Icons artwork is distributed under CC0-1.0: https://github.com/simple-icons/simple-icons/tree/13.21.0. WhatsApp remains a trademark of its owner; the mark is not covered by this project’s MIT grant.
