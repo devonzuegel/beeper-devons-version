@@ -2170,6 +2170,105 @@ body.bubble-mode .conversation button.CallActionMessage-module__wrapper:hover {
 [data-pref-name="Custom CSS Options"] .prefs-action-group > button:nth-child(4) { --clean-css-action-label: "Reset"; --clean-css-action-icon: url("data:image/svg+xml,%3Cns0%3Asvg%20xmlns%3Ans0%3D%22http%3A//www.w3.org/2000/svg%22%20class%3D%22lucide%20lucide-rotate-ccw%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23aab7c8%22%20stroke%3D%22%23aab7c8%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20fill-opacity%3D%22.16%22%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M3%2012a9%209%200%201%200%209-9%209.75%209.75%200%200%200-6.74%202.74L3%208%22%20/%3E%0A%20%20%3Cns0%3Apath%20d%3D%22M3%203v5h5%22%20/%3E%0A%3C/ns0%3Asvg%3E"); }
 }
 
+/* Single-line chat list: names and previews share a compact, measured row. */
+body .sidebar-thread {
+  --inbox-avatar-size: 23px;
+}
+body .sidebar-thread .ThreadListItem-module__internal {
+  height: 34px !important;
+  min-height: 34px !important;
+  box-sizing: border-box;
+  padding-block: 5px !important;
+}
+body .sidebar-thread .ThreadListItem-module__avatar {
+  width: 23px !important;
+  height: 23px !important;
+  margin-right: 8px !important;
+}
+body .sidebar-thread .ThreadListItem-module__avatar > span,
+body .sidebar-thread .ThreadListItem-module__avatar .GroupAvatar-module__wrapper {
+  width: 23px !important;
+  height: 23px !important;
+}
+body .sidebar-thread .ThreadListItem-module__content {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  align-self: center !important;
+  gap: 7px !important;
+  min-width: 0;
+}
+body .sidebar-thread .ThreadListItem-module__header {
+  display: contents !important;
+}
+body .sidebar-thread .ThreadListItem-module__title {
+  flex: 0 1 auto;
+  max-width: 42%;
+  font-size: 13px !important;
+  line-height: 18px !important;
+  margin: 0 !important;
+}
+body .sidebar-thread .ThreadListItem-module__header > svg {
+  flex: 0 0 11px;
+  width: 11px;
+  height: 11px;
+}
+body .sidebar-thread .ThreadListItem-module__body {
+  order: 2;
+  --max-line-count: 1;
+  display: flex !important;
+  flex: 1 1 0 !important;
+  align-items: center !important;
+  min-width: 0 !important;
+  gap: 4px !important;
+  padding-left: 0 !important;
+  height: 18px;
+  font-size: 13px !important;
+  line-height: 18px !important;
+}
+body .sidebar-thread .ThreadListItem-module__preview,
+body .sidebar-thread .ThreadListItem-module__previewWithMedia {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 100%;
+  height: 18px !important;
+  font-size: 13px !important;
+  line-height: 18px !important;
+  white-space: nowrap !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+body .sidebar-thread .ThreadListItem-module__preview {
+  display: block !important;
+}
+body .sidebar-thread .ThreadListItem-module__body::before {
+  position: static !important;
+  flex: 0 0 12px;
+  width: 12px !important;
+  height: 12px !important;
+  align-self: center;
+}
+body .sidebar-thread .ThreadListItem-module__timestamp {
+  order: 3;
+  flex: 0 0 auto;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  font-size: 10px !important;
+  line-height: 18px !important;
+}
+body .sidebar-thread .ThreadListItem-module__actions,
+body .sidebar-thread .ThreadListItem-module__actions:has(.ThreadListItem-module__unreadCount) {
+  flex: 0 0 auto;
+  min-width: 0 !important;
+  margin-top: 0 !important;
+  align-self: center !important;
+  height: 16px;
+}
+body .sidebar-thread .ThreadListItem-module__actions:has(.ThreadListItem-module__unreadCount) {
+  flex-basis: 16px;
+  min-width: 16px !important;
+}
+
 /* Contextual font keeps the composer placeholder intact and bolds its chat name. */
 /* Derived from Inter Medium / Bold. Renamed Beeper Placeholder.
 Copyright (c) 2016 The Inter Project Authors (https://github.com/rsms/inter)

@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Try a compact 34px chat list with smaller avatars and message previews inline beside chat names; preserve timestamps, unread badges, and selected styling.
+
 - Replace the ribbon’s generic WhatsApp handset with a recognizable duotone WhatsApp bubble badge.
 
 - Bold the chat name inside the composer placeholder with an embedded contextual font; keep the prefix, network name, and actual drafts unchanged.
