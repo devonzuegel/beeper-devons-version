@@ -2288,6 +2288,45 @@ body .sidebar-thread .ThreadListItem-module__wrapper.ThreadListItem-module__isSe
   border-radius: 0 !important;
 }
 
+/* Pastel fallback avatars. Reuse each native gradient for matching initials;
+   the translucent surface softens only generated avatars, leaving photos alone. */
+.defaultAvatar .DefaultAvatar-module__circle {
+  position: relative;
+  isolation: isolate;
+  font-family: var(--font-family) !important;
+}
+.defaultAvatar .DefaultAvatar-module__circle::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, .84);
+  pointer-events: none;
+  z-index: 0;
+}
+.defaultAvatar .DefaultAvatar-module__text {
+  position: relative;
+  z-index: 1;
+  --letter-spacing: 0px !important;
+  margin-right: 0 !important;
+  font-weight: 700 !important;
+  font-size: 43cqw !important;
+  background: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent;
+  filter: saturate(.45) brightness(.6);
+}
+@media (prefers-color-scheme: dark) {
+  .defaultAvatar .DefaultAvatar-module__circle::before {
+    background: rgba(0, 0, 0, .72);
+  }
+  .defaultAvatar .DefaultAvatar-module__text {
+    filter: saturate(.3) brightness(1.65);
+  }
+}
+
 /* Compact timestamp font: abbreviate labels without rewriting dates. */
 /* Derived from Inter Semibold. Renamed Beeper Compact Dates.
 Copyright (c) 2016 The Inter Project Authors (https://github.com/rsms/inter)

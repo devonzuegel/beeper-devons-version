@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Soften generated initials avatars into pastel circles with matching darker Inter initials, with a darker palette in dark mode. Preserve photo avatars.
+
 - Abbreviate all chat-list month names to Jan, Feb, Mar, etc., preserving day and year numbers.
 
 - Extend chat rows and selection highlights across the pane, removing outer gutters and rounding while retaining 8px content padding.
