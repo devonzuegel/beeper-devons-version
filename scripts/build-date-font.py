@@ -22,7 +22,7 @@ for table in ['GSUB', 'GPOS', 'GDEF', 'DSIG']:
         del font[table]
 
 replacements = {
-    'Yesterday': 'Yest', 'Monday': 'Mon', 'Tuesday': 'Tue',
+    'Yesterday': '1d', 'Monday': 'Mon', 'Tuesday': 'Tue',
     'Wednesday': 'Wed', 'Thursday': 'Thu', 'Friday': 'Fri',
     'Saturday': 'Sat', 'Sunday': 'Sun',
 }

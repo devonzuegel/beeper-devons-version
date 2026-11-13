@@ -31,7 +31,7 @@ The installer backs up the existing stylesheet before copying this one to `~/Lib
 - Quoted messages inside a shared reply bubble; wider message text and side-positioned reply / reaction controls.
 - Selection outlines, compact hover actions, subtle received-bubble edges, and centered system notices.
 - Composer placeholders with a bold chat name and lighter surrounding text.
-- Compact chat-list dates such as `Yest`, `Wed`, and `12:20am`.
+- Compact chat-list dates such as `1d`, `Wed`, and `12:20am`.
 
 The current file preserves the accumulated theme exactly as used on November 9, 2026. Some rules intentionally override earlier ones, so **order matters**. Refactoring can happen in separate, reviewable commits without losing this baseline.
 
