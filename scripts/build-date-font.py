@@ -25,6 +25,9 @@ replacements = {
     'Yesterday': '1d', 'Monday': 'Mon', 'Tuesday': 'Tue',
     'Wednesday': 'Wed', 'Thursday': 'Thu', 'Friday': 'Fri',
     'Saturday': 'Sat', 'Sunday': 'Sun',
+    'January': 'Jan', 'February': 'Feb', 'March': 'Mar', 'April': 'Apr',
+    'June': 'Jun', 'July': 'Jul', 'August': 'Aug', 'September': 'Sep',
+    'October': 'Oct', 'November': 'Nov', 'December': 'Dec',
 }
 for space in [' ', '\u00a0', '\u202f', '']:
     replacements[space + 'AM'] = 'am'
@@ -85,6 +88,11 @@ for sample in ['12:20 AM', '12:01 PM', '9:05\u202fAM', '11:59\u00a0PM']:
     assert len(shape(sample)) == len(prefix) + 1, sample
 for sample in ['10/22/2026', '12:20', 'Today', 'Nov 13']:
     assert shape(sample) == [cmap[ord(c)] for c in sample], sample
+for month in ['January', 'February', 'March', 'April', 'June', 'July',
+              'August', 'September', 'October', 'November', 'December']:
+    for suffix in [' 3', ' 13', ' 30, 2026']:
+        assert shape(month + suffix) == [expected_glyphs[tuple(cmap[ord(c)] for c in month)]] + [cmap[ord(c)] for c in suffix]
+assert shape('May 3') == [cmap[ord(c)] for c in 'May 3']
 
 font.flavor = 'woff2'
 buffer = io.BytesIO()
@@ -113,4 +121,4 @@ anchor = '/* Contextual font keeps the composer placeholder intact and bolds its
 assert anchor in css
 css = css.replace(anchor, block + anchor, 1)
 repo.joinpath('custom.css').write_text(css)
-print('Verified weekdays, yesterday, AM/PM spacing, and unchanged numeric dates.')
+print('Verified all months, weekdays, yesterday, AM/PM spacing, and unchanged date numbers.')

@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Abbreviate all chat-list month names to Jan, Feb, Mar, etc., preserving day and year numbers.
+
 - Extend chat rows and selection highlights across the pane, removing outer gutters and rounding while retaining 8px content padding.
 
 - Display yesterday as 1d instead of Yest in chat-list timestamps.
