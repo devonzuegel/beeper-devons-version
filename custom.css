@@ -2269,6 +2269,25 @@ body .sidebar-thread .ThreadListItem-module__actions:has(.ThreadListItem-module_
   min-width: 16px !important;
 }
 
+/* Full-width chat rows: no outer gutters; keep 8px around row content. */
+body .threads:has(.sidebar-thread) {
+  padding-left: 0 !important;
+}
+body .threads:has(.sidebar-thread) .virtual-list {
+  padding-inline: 0 !important;
+  scrollbar-gutter: auto !important;
+}
+body .threads:has(.sidebar-thread) .ThreadListItem-module__internal {
+  padding-inline: 8px !important;
+}
+body .sidebar-thread.isSelected::before {
+  inset: 2px 0 !important;
+  border-radius: 0 !important;
+}
+body .sidebar-thread .ThreadListItem-module__wrapper.ThreadListItem-module__isSelected::before {
+  border-radius: 0 !important;
+}
+
 /* Compact timestamp font: abbreviate labels without rewriting dates. */
 /* Derived from Inter Semibold. Renamed Beeper Compact Dates.
 Copyright (c) 2016 The Inter Project Authors (https://github.com/rsms/inter)

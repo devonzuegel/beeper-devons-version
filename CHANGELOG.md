@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Extend chat rows and selection highlights across the pane, removing outer gutters and rounding while retaining 8px content padding.
+
 - Display yesterday as 1d instead of Yest in chat-list timestamps.
 
 - Compact chat-list timestamps: display Yesterday as Yest, weekdays as Mon/Tue/etc., and times as 12:20am using a scoped Inter-derived font. Preserve the original timestamp text for accessibility and copying.
